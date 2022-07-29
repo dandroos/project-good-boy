@@ -1,8 +1,129 @@
-export const nav = {
+const { Facebook, Instagram } = require("mdi-material-ui")
+
+module.exports.nav = {
   internal: [
+    {
+      id: "home",
+      label: {
+        en: "Home",
+        es: "Iniciar",
+      },
+      url: {
+        en: "/",
+        es: "/",
+      },
+    },
+    {
+      id: "the-dogs",
+      label: {
+        en: "Dogs",
+        es: "Perros",
+      },
+      url: {
+        en: "/dogs",
+        es: "/perros",
+      },
+    },
+    {
+      dropdown: true,
+      id: "how-to",
+      label: {
+        en: "Help",
+        es: "Ayuda",
+      },
+      options: [
+        {
+          id: "adopt",
+          label: {
+            en: "Adopt",
+            es: "Adoptar",
+          },
+          url: {
+            en: "/adopt",
+            es: "/adoptar",
+          },
+        },
+        {
+          id: "foster",
+          label: {
+            en: "Foster",
+            es: "Coger",
+          },
+          url: {
+            en: "/foster",
+            es: "/coger",
+          },
+        },
+        {
+          id: "donate",
+          label: {
+            en: "Donate",
+            es: "Donar",
+          },
+          url: {
+            en: "/donate",
+            es: "/donar",
+          },
+        },
+        {
+          id: "volunteer",
+          label: {
+            en: "Volunteer",
+            es: "Ser Voluntario",
+          },
+          url: {
+            en: "/volunteer",
+            es: "/ser_voluntario",
+          },
+        },
+      ],
+    },
+    {
+      id: "about",
+      label: {
+        en: "About",
+        es: "Conocenos",
+      },
+      url: {
+        en: "/about",
+        es: "/conocenos",
+      },
+    },
     // {
-    //   label: "Home",
-    //   url: "/",
+    //   id: "articles",
+    //   label: {
+    //     en: "Articles",
+    //     es: "Artículos",
+    //   },
+    //   url: {
+    //     en: "/articles",
+    //     es: "/articulos",
+    //   },
     // },
+    {
+      id: "contact",
+      label: {
+        en: "Contact",
+        es: "Contáctenos",
+      },
+      url: {
+        en: "/contact",
+        es: "/contactenos",
+      },
+    },
+  ],
+  external: [
+    {
+      id: "facebook",
+      Icon: Facebook,
+      baseUrl: "https://facebook.com/",
+      graphqlQuery: "facebook_id",
+    },
+    {
+      id: "instagram",
+      Icon: Instagram,
+      baseUrl: "https://instagram.com/",
+      graphqlQuery: "instagram_id",
+    },
   ],
 }

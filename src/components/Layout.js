@@ -1,36 +1,126 @@
-import { Container, Typography, useMediaQuery, useTheme } from "@mui/material"
-import React, { useEffect } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { AnimatePresence, motion } from "framer-motion"
+import { Box, useMediaQuery, useTheme } from "@mui/material"
+import React, { useEffect, useState } from "react"
+import {
+  setAtTop,
+  setFontLoaded,
+  setIsLandscape,
+  setIsMobile,
+  setPageAnimating,
+  setSiteReady,
+} from "../redux/actions"
 
+import FontFaceObserver from "fontfaceobserver"
+import Footer from "./Footer"
+import LanguageUtility from "./LanguageUtility"
+import Navigation from "./Navigation"
 import { connect } from "react-redux"
-import { setIsMobile } from "../redux/actions"
+import style from "../../style"
 
-const Layout = ({ dispatch, location, children }) => {
-  const { title, description } = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-    }
-  `).site.siteMetadata
-
+const Layout = ({
+  dispatch,
+  location,
+  children,
+  language,
+  fontLoaded,
+  locationId,
+  ready,
+}) => {
   const isMobile = useMediaQuery(useTheme().breakpoints.down("md"))
+  const isLandscape = useMediaQuery("(orientation: landscape")
+
+  useEffect(() => {
+    dispatch(setIsLandscape(isLandscape))
+    //eslint-disable-next-line
+  }, [isLandscape])
 
   useEffect(() => {
     dispatch(setIsMobile(isMobile))
     //eslint-disable-next-line
   }, [isMobile])
 
+  useEffect(() => {
+    const loadFont = () => {
+      const font = new FontFaceObserver(style.typography.fontFamily)
+      font.load().then(() => {
+        dispatch(setFontLoaded(true))
+      }, loadFont)
+    }
+    loadFont()
+    document.addEventListener("scroll", () => {
+      dispatch(setAtTop(window.scrollY === 0))
+    })
+    dispatch(setAtTop(window.scrollY === 0))
+    //eslint-disable-next-line
+  }, [])
+
+  useEffect(() => {
+    setWhiteTextAtTop(locationId.id === "home")
+    //eslint-disable-next-line
+  }, [locationId, language])
+
+  useEffect(() => {
+    if (language.length > 0 && fontLoaded && !ready) {
+      dispatch(setSiteReady(true))
+    }
+    //eslint-disable-next-line
+  }, [language, fontLoaded])
+  const [whiteTextAtTop, setWhiteTextAtTop] = useState(true)
   return (
-    <Container>
-      <Typography variant="h1">{title}</Typography>
-      <Typography variant="lead">{description}</Typography>
-      {children}
-    </Container>
+    <>
+      <LanguageUtility />
+      <Navigation
+        home={locationId.id === "home"}
+        whiteTextAtTop={whiteTextAtTop}
+      />
+
+      <Box display="flex" flexDirection="column" overflow="hidden">
+        <AnimatePresence exitBeforeEnter>
+          <motion.div
+            onAnimationStart={(e) => {
+              dispatch(setPageAnimating(true))
+              // if (location.pathname === `/${language}` && e.opacity === 1) {
+              //   setWhiteTextAtTop(true)
+              // } else {
+              //   setWhiteTextAtTop(false)
+              // }
+            }}
+            onAnimationComplete={(e) => {
+              console.log(e.opacity)
+              if (e.opacity === 1) {
+                dispatch(setPageAnimating(false))
+              }
+            }}
+            key={location.pathname}
+            initial={{ opacity: 0, transform: `translateY(1000px)` }}
+            animate={{ opacity: 1, transform: `translateY(0px)` }}
+            exit={{ opacity: 0, transform: `translateY(1000px)` }}
+            transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+          >
+            <Box
+              display="flex"
+              flexDirection="column"
+              minHeight={!isMobile ? "100vh" : window.innerHeight * 0.01 * 100}
+              justifyContent="space-between"
+            >
+              <Box component="main" pb={locationId.id !== `home` && 4}>
+                {/* {locationId.id !== `home` && <Toolbar />} */}
+                {children}
+              </Box>
+              <Footer />
+            </Box>
+          </motion.div>
+        </AnimatePresence>
+      </Box>
+    </>
   )
 }
 
-export default connect()(Layout)
+const stp = (s) => ({
+  language: s.language,
+  fontLoaded: s.fontLoaded,
+  ready: s.siteReady,
+  locationId: s.locationId,
+})
+
+export default connect(stp)(Layout)

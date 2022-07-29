@@ -45,6 +45,12 @@ export const theme = responsiveFontSizes(
         },
         fontSize: "1.15rem",
       },
+      h1: { fontWeight: 700 },
+      h2: { fontWeight: 700 },
+      h3: { fontWeight: 700 },
+      h4: { fontWeight: 700 },
+      h5: { fontWeight: 700 },
+      h6: { fontWeight: 700 },
       // nav: {
       //   fontSize: "1.1rem",
       //   lineHeight: 1,
@@ -55,6 +61,10 @@ export const theme = responsiveFontSizes(
     components: {
       MuiButton: {
         defaultProps: {
+          color: "inherit",
+          sx: {
+            // textTransform: "capitalize",
+          },
           // variant: "contained",
         },
       },

@@ -1,0 +1,453 @@
+local_backend: true
+backend:
+  name: git-gateway
+  branch: master
+media_folder: content/site_images
+collections:
+  - label: The Dogs
+    name: the_dogs
+    label_singular: Dog
+    folder: "dogs"
+    editor:
+      preview: false
+    create: true
+    media_folder: ""
+    summary: "{{name}}"
+    identifier_field: name
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    path: "{{slug}}/index"
+    fields:
+      - label: Name
+        name: name
+      - label: Breed
+        name: breed
+        widget: object
+        fields:
+          - label: English
+            name: en
+          - label: Español              
+            name: es
+      - label: Sex
+        name: sex
+        widget: "select"
+        options:
+          - { label: "Male", value: "0" }
+          - { label: "Female", value: "1" }
+      - label: Date of Birth
+        name: dob
+        widget: datetime
+        time_format: false
+        date_format: "DD/MM/YYYY"
+      - label: Date came in
+        name: date_came_in
+        widget: datetime
+        time_format: false
+        date_format: "DD/MM/YYYY"
+      - label: Photos
+        name: photos
+        hint: Put main photo first
+        widget: list
+        summary: "{{fields.photo}}"
+        collapsed: false
+        fields:
+          - label: Photo
+            name: photo
+            widget: image
+      - label: Description
+        name: description
+        widget: object
+        fields:
+          - label: English
+            name: en
+            widget: text
+          - label: Español              
+            name: es
+            widget: text
+      - label: Sociability
+        name: sociability
+        widget: object
+        fields:
+          - label: Other dogs
+            name: dogs
+            widget: select
+            options:
+              - label: Yes
+                value: 1
+              - label: No
+                value: 0
+              - label: TBC
+                value: 2
+          - label: Cats 
+            name: cats
+            widget: select
+            options:
+              - label: Yes
+                value: 1
+              - label: No
+                value: 0
+              - label: TBC
+                value: 2
+          - label: Children
+            name: children
+            widget: select
+            options:
+              - label: Yes
+                value: 1
+              - label: No
+                value: 0
+              - label: TBC
+                value: 2
+
+  - label: Site content 
+    name: content
+    media_folder: ./site_images
+    public_folder: site_images
+    editor:
+      preview: false
+    files:
+      - label: Contact
+        name: contact
+        file: content/contact.md
+        fields:
+          - label: Heading banner
+            name: heading_banner
+            widget: object
+            fields:
+              - label: Intro text
+                name: intro_text
+                widget: object
+                fields:
+                  - label: English
+                    name: en
+                  - label: Español              
+                    name: es
+              - label: Background image
+                name: background_image
+                widget: image
+          - label: Contact and social
+            name: contact_and social
+            widget: object
+            fields:
+              - label: Facebook username
+                name: facebook_username
+              - label: Email address
+                name: email_address
+              - label: Instagram username
+                name: instagram_username
+          - label: Contact warning
+            name: contact_warning
+            widget: object
+            fields:
+              - label: Heading
+                name: heading
+                widget: object
+                fields:
+                - label: English
+                  name: en
+                - label: Español              
+                  name: es
+              - label: Text 
+                name: text
+                widget: object
+                fields:
+                - label: English
+                  name: en
+                  widget: text
+                - label: Español              
+                  name: es
+                  widget: text
+          - label: Common queries
+            name: common_queries
+            widget: list
+            fields:
+              - label: Query
+                name: query
+                widget: object
+                fields:
+                  - label: English
+                    name: en
+                  - label: Español              
+                    name: es
+              - label: Response
+                name: response
+                widget: object
+                fields:
+                  - label: English
+                    name: en
+                    widget: text
+                  - label: Español              
+                    name: es
+                    widget: text
+          - label: Contact button introduction
+            name: contact_button_intro
+            widget: object
+            fields:
+              - label: English
+                name: en
+                widget: text
+              - label: Español              
+                name: es
+                widget: text
+          - label: Contact form introduction
+            name: contact_form_intro
+            widget: object
+            fields:
+              - label: English
+                name: en
+                widget: text
+              - label: Español              
+                name: es
+                widget: text
+          - label: Contact form fields
+            name: contact_form_fields
+            widget: object
+            fields:
+              - label: Name
+                name: name
+                widget: object
+                fields:
+                  - label: English
+                    name: en
+                  - label: Español              
+                    name: es
+              - label: Email 
+                name: email
+                widget: object
+                fields:
+                  - label: English
+                    name: en
+                  - label: Español              
+                    name: es
+              - label: Phone
+                name: phone
+                widget: object
+                fields:
+                  - label: English
+                    name: en
+                  - label: Español              
+                    name: es
+              - label: Message
+                name: message
+                widget: object
+                fields:
+                  - label: English
+                    name: en
+                  - label: Español              
+                    name: es
+              - label: Send
+                name: send
+                widget: object
+                fields:
+                  - label: English
+                    name: en
+                  - label: Español              
+                    name: es
+      - label: About
+        name: about
+        file: content/about.md
+        fields:
+          - label: Heading banner
+            name: heading_banner
+            widget: object
+            fields:
+              - label: Intro text
+                name: intro_text
+                widget: object
+                fields:
+                  - label: English
+                    name: en
+                  - label: Español              
+                    name: es
+              - label: Background image
+                name: background_image
+                widget: image
+          - label: Page content
+            name: content
+            widget: object
+            fields:
+              - label: English
+                name: en
+                widget: markdown
+                buttons: ["bold", "italic", "link", "heading-one", "bulleted-list", "numbered-list"]
+                editor_components: []
+                modes: ["rich_text"]
+              - label: Español              
+                name: es
+                widget: markdown
+                buttons: ["bold", "italic", "link", "heading-one", "bulleted-list", "numbered-list"]
+                editor_components: []
+                modes: ["rich_text"]
+      - label: Adopt 
+        name: adopt
+        file: content/adopt.md
+        fields:
+          - label: Heading banner
+            name: heading_banner
+            widget: object
+            fields:
+              - label: Intro text
+                name: intro_text
+                widget: object
+                fields:
+                  - label: English
+                    name: en
+                  - label: Español              
+                    name: es
+              - label: Background image
+                name: background_image
+                widget: image
+          - label: Page content
+            name: content
+            widget: object
+            fields:
+              - label: English
+                name: en
+                widget: markdown
+                buttons: ["bold", "italic", "link", "heading-one", "bulleted-list", "numbered-list"]
+                editor_components: []
+                modes: ["rich_text"]
+              - label: Español              
+                name: es
+                widget: markdown
+                buttons: ["bold", "italic", "link", "heading-one", "bulleted-list", "numbered-list"]
+                editor_components: []
+                modes: ["rich_text"]
+      - label: Foster 
+        name: foster
+        file: content/foster.md
+        fields:
+          - label: Heading banner
+            name: heading_banner
+            widget: object
+            fields:
+              - label: Intro text
+                name: intro_text
+                widget: object
+                fields:
+                  - label: English
+                    name: en
+                  - label: Español              
+                    name: es
+              - label: Background image
+                name: background_image
+                widget: image
+          - label: Page content
+            name: content
+            widget: object
+            fields:
+              - label: English
+                name: en
+                widget: markdown
+                buttons: ["bold", "italic", "link", "heading-one", "bulleted-list", "numbered-list"]
+                editor_components: []
+                modes: ["rich_text"]
+              - label: Español              
+                name: es
+                widget: markdown
+                buttons: ["bold", "italic", "link", "heading-one", "bulleted-list", "numbered-list"]
+                editor_components: []
+                modes: ["rich_text"]
+      - label: Donate 
+        name: donate
+        file: content/donate.md
+        fields:
+          - label: Heading banner
+            name: heading_banner
+            widget: object
+            fields:
+              - label: Intro text
+                name: intro_text
+                widget: object
+                fields:
+                  - label: English
+                    name: en
+                  - label: Español              
+                    name: es
+              - label: Background image
+                name: background_image
+                widget: image
+          - label: Page content
+            name: content
+            widget: object
+            fields:
+              - label: English
+                name: en
+                widget: markdown
+                buttons: ["bold", "italic", "link", "heading-one", "bulleted-list", "numbered-list"]
+                editor_components: []
+                modes: ["rich_text"]
+              - label: Español              
+                name: es
+                widget: markdown
+                buttons: ["bold", "italic", "link", "heading-one", "bulleted-list", "numbered-list"]
+                editor_components: []
+                modes: ["rich_text"]
+      - label: The Dogs
+        name: the_dogs
+        file: content/the-dogs.md
+        fields:
+          - label: Heading banner
+            name: heading_banner
+            widget: object
+            fields:
+              - label: Intro text
+                name: intro_text
+                widget: object
+                fields:
+                  - label: English
+                    name: en
+                  - label: Español              
+                    name: es
+              - label: Background image
+                name: background_image
+                widget: image
+      - label: Homepage
+        name: homepage
+        file: content/home.md
+        fields:
+          - label: Images (Landscape)
+            name: homepage_images_landscape
+            widget: list
+            hint: Will typically show on desktop devices
+            fields:
+              - label: Image
+                name: image
+                widget: image
+              - label: Alt (Description of image) 
+                name: alt
+                hint: e.g. Bardino
+          - label: Images (Portrait)
+            name: homepage_images_portrait
+            hint: Will typically show on mobile devices
+            widget: list
+            fields:
+              - label: Image
+                name: image
+                widget: image
+              - label: Alt (Description of image) 
+                name: alt
+                hint: e.g. Bardino
+          - label: Heading
+            name: homepage_heading
+            widget: object
+            fields:
+              - label: English
+                name: en
+              - label: Español              
+                name: es
+          - label: Lead
+            name: homepage_lead
+            widget: object
+            fields:
+              - label: English
+                name: en
+              - label: Español              
+                name: es
+          - label: Call to Action (CTA) 
+            name: homepage_cta
+            widget: object
+            fields:
+              - label: English
+                name: en
+              - label: Español              
+                name: es
