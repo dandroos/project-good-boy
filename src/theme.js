@@ -31,7 +31,12 @@ export const theme = responsiveFontSizes(
         main: "#ea4335",
       },
     },
+
     typography: {
+      body1: {
+        lineHeight: 1.9,
+      },
+
       fontFamily: style.typography.fontFamily,
       lead: {
         "@media (min-width:600px)": {
@@ -44,6 +49,7 @@ export const theme = responsiveFontSizes(
           fontSize: "1.4rem",
         },
         fontSize: "1.15rem",
+        display: "block",
       },
       h1: { fontWeight: 700 },
       h2: { fontWeight: 700 },

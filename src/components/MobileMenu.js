@@ -22,7 +22,14 @@ import { connect } from "react-redux"
 import { nav } from "../siteLinks"
 import { setShowMobileMenu } from "../redux/actions"
 
-const MobileMenu = ({ dispatch, isMobile, isOpen, language, staticPage }) => {
+const MobileMenu = ({
+  dispatch,
+  isMobile,
+  isOpen,
+  language,
+  staticPage,
+  dogPage,
+}) => {
   const [collapse, setCollapse] = useState(true)
   const theme = useTheme()
   const handleClose = () => {
@@ -34,19 +41,17 @@ const MobileMenu = ({ dispatch, isMobile, isOpen, language, staticPage }) => {
       file(
         sourceInstanceName: { eq: "content" }
         extension: { eq: "md" }
-        name: { eq: "contact" }
+        name: { eq: "contact_and_social" }
       ) {
         childMarkdownRemark {
           frontmatter {
-            contact_and_social {
-              facebook_username
-              instagram_username
-            }
+            facebook_username
+            instagram_username
           }
         }
       }
     }
-  `).file.childMarkdownRemark.frontmatter.contact_and_social
+  `).file.childMarkdownRemark.frontmatter
   return (
     isMobile && (
       <Portal>
@@ -55,6 +60,7 @@ const MobileMenu = ({ dispatch, isMobile, isOpen, language, staticPage }) => {
           open={isOpen}
           fullScreen
           onClose={handleClose}
+          PaperProps={{ sx: { overflowY: "clip" } }}
         >
           <Fab
             sx={{ position: "fixed", top: 20, right: 20 }}
@@ -101,7 +107,10 @@ const MobileMenu = ({ dispatch, isMobile, isOpen, language, staticPage }) => {
                             primary={i.label[language]}
                             primaryTypographyProps={{
                               align: "center",
-                              fontWeight: "inherit",
+                              fontWeight:
+                                i.id === "the-dogs" && dogPage
+                                  ? "bold"
+                                  : "inherit",
                             }}
                           />
                         </ListItem>
@@ -173,6 +182,7 @@ const MobileMenu = ({ dispatch, isMobile, isOpen, language, staticPage }) => {
                   color="inherit"
                   key={ind}
                   href={i.baseUrl + data[`${i.id}_username`]}
+                  target="_blank"
                 >
                   <i.Icon />
                 </IconButton>
@@ -191,5 +201,6 @@ const stp = (s) => ({
   isOpen: s.showMobileMenu,
   language: s.language,
   staticPage: s.locationId.staticPage,
+  dogPage: s.locationId.dog,
 })
 export default connect(stp)(MobileMenu)

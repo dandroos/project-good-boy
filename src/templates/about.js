@@ -25,6 +25,7 @@ const About = ({ dispatch, pageContext, data }) => {
           language
         ]
       }
+      language={language}
       bgImage={
         data.file.childMarkdownRemark.frontmatter.heading_banner
           .background_image

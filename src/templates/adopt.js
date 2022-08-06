@@ -33,6 +33,7 @@ const Adopt = ({ dispatch, pageContext, data }) => {
         data.file.childMarkdownRemark.frontmatter.heading_banner
           .background_image
       }
+      language={language}
     >
       <ReactMarkdown
         components={{

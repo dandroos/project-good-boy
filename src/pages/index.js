@@ -31,7 +31,7 @@ const Index = () => {
     }
     //eslint-disable-next-line
   }, [])
-  return <Seo title="" />
+  return <Seo title="" lang="es" />
 }
 
 export default Index

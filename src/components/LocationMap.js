@@ -1,4 +1,5 @@
 import { MapContainer, Marker, TileLayer } from "react-leaflet"
+import { graphql, useStaticQuery } from "gatsby"
 
 import { Icon } from "leaflet"
 import { Paper } from "@mui/material"
@@ -6,8 +7,24 @@ import React from "react"
 import logoPin from "../images/logopin.png"
 
 export default function LocationMap() {
-  const latitude = 28.609654
-  const longitude = -13.92936
+  const { latitude, longitude } = useStaticQuery(graphql`
+    {
+      file(
+        sourceInstanceName: { eq: "content" }
+        extension: { eq: "md" }
+        name: { eq: "location" }
+      ) {
+        childMarkdownRemark {
+          frontmatter {
+            gps {
+              latitude
+              longitude
+            }
+          }
+        }
+      }
+    }
+  `).file.childMarkdownRemark.frontmatter.gps
   return typeof window !== "undefined" ? (
     <Paper elevation={3}>
       <MapContainer

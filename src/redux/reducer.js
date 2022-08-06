@@ -9,6 +9,7 @@ import {
   SET_PAGE_ANIMATING,
   SET_SHOW_MOBILE_MENU,
   SET_SITE_READY,
+  SET_TOAST,
 } from "./types"
 
 const initialState = {
@@ -22,11 +23,15 @@ const initialState = {
   locationId: "",
   showMobileMenu: false,
   pageAnimating: true,
+  toast: {
+    open: false,
+    severity: "success",
+    msg: "",
+  },
 }
 
 export const reducer = (state = initialState, { type, payload }) => {
   const newState = Object.assign({}, state)
-  console.log(type, payload)
   switch (type) {
     case SET_IS_MOBILE:
       newState.isMobile = payload
@@ -57,6 +62,9 @@ export const reducer = (state = initialState, { type, payload }) => {
       break
     case SET_PAGE_ANIMATING:
       newState.pageAnimating = payload
+      break
+    case SET_TOAST:
+      newState.toast = payload
       break
     default:
       break

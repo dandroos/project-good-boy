@@ -14,6 +14,7 @@ import FontFaceObserver from "fontfaceobserver"
 import Footer from "./Footer"
 import LanguageUtility from "./LanguageUtility"
 import Navigation from "./Navigation"
+import Toast from "./Toast"
 import { connect } from "react-redux"
 import style from "../../style"
 
@@ -67,52 +68,58 @@ const Layout = ({
   }, [language, fontLoaded])
   const [whiteTextAtTop, setWhiteTextAtTop] = useState(true)
   return (
-    <>
-      <LanguageUtility />
-      <Navigation
-        home={locationId.id === "home"}
-        whiteTextAtTop={whiteTextAtTop}
-      />
+    typeof window !== "undefined" && (
+      <>
+        <LanguageUtility />
+        <Toast />
+        <Navigation
+          home={locationId.id === "home"}
+          whiteTextAtTop={whiteTextAtTop}
+        />
 
-      <Box display="flex" flexDirection="column" overflow="hidden">
-        <AnimatePresence exitBeforeEnter>
-          <motion.div
-            onAnimationStart={(e) => {
-              dispatch(setPageAnimating(true))
-              // if (location.pathname === `/${language}` && e.opacity === 1) {
-              //   setWhiteTextAtTop(true)
-              // } else {
-              //   setWhiteTextAtTop(false)
-              // }
-            }}
-            onAnimationComplete={(e) => {
-              console.log(e.opacity)
-              if (e.opacity === 1) {
-                dispatch(setPageAnimating(false))
-              }
-            }}
-            key={location.pathname}
-            initial={{ opacity: 0, transform: `translateY(1000px)` }}
-            animate={{ opacity: 1, transform: `translateY(0px)` }}
-            exit={{ opacity: 0, transform: `translateY(1000px)` }}
-            transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
-          >
-            <Box
-              display="flex"
-              flexDirection="column"
-              minHeight={!isMobile ? "100vh" : window.innerHeight * 0.01 * 100}
-              justifyContent="space-between"
+        {/* <Box sx={{ display: "flex", flexDirection: "column", overflow: "hidden" }}> */}
+        <div
+          className="helmettttttttttt"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            overflow: "hidden",
+          }}
+        >
+          <AnimatePresence exitBeforeEnter>
+            <motion.div
+              onAnimationStart={(e) => {
+                dispatch(setPageAnimating(true))
+              }}
+              onAnimationComplete={(e) => {
+                if (e.opacity === 1) {
+                  dispatch(setPageAnimating(false))
+                }
+              }}
+              key={location.pathname}
+              initial={{ opacity: 0, transform: `translateY(1000px)` }}
+              animate={{ opacity: 1, transform: `translateY(0px)` }}
+              exit={{ opacity: 0, transform: `translateY(1000px)` }}
+              transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
             >
-              <Box component="main" pb={locationId.id !== `home` && 4}>
-                {/* {locationId.id !== `home` && <Toolbar />} */}
-                {children}
+              <Box
+                display="flex"
+                flexDirection="column"
+                minHeight={
+                  !isMobile ? "100vh" : window.innerHeight * 0.01 * 100
+                }
+                justifyContent="space-between"
+              >
+                <Box component="main" pb={locationId.id !== `home` && 4}>
+                  {children}
+                </Box>
+                <Footer />
               </Box>
-              <Footer />
-            </Box>
-          </motion.div>
-        </AnimatePresence>
-      </Box>
-    </>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </>
+    )
   )
 }
 

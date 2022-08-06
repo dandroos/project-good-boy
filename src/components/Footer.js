@@ -6,6 +6,7 @@ import {
   Typography,
   useTheme,
 } from "@mui/material"
+import { graphql, useStaticQuery } from "gatsby"
 
 import Copyright from "./Copyright"
 import Hours from "./Hours"
@@ -28,6 +29,27 @@ const Footer = ({ locationId, language }) => {
       es: "Sitio web de ",
     },
   }
+
+  const { street_address, town_city, postcode } = useStaticQuery(graphql`
+    {
+      file(
+        sourceInstanceName: { eq: "content" }
+        extension: { eq: "md" }
+        name: { eq: "location" }
+      ) {
+        childMarkdownRemark {
+          frontmatter {
+            address {
+              postcode
+              street_address
+              town_city
+            }
+          }
+        }
+      }
+    }
+  `).file.childMarkdownRemark.frontmatter.address
+
   return (
     <Box
       bgcolor={locationId.id === "home" ? "common.white" : "primary.main"}
@@ -48,8 +70,8 @@ const Footer = ({ locationId, language }) => {
             alt="Fuerteventura Dog Rescue Logo"
             placeholder="none"
           />
-          <Typography mt={2}>
-            Calle Juan Cabrera Méndez, La Oliva, 35640, Fuerteventura,{" "}
+          <Typography mt={2} display="block">
+            {street_address}, {town_city}, {postcode}, Fuerteventura,{" "}
             {text.spain[language]}
           </Typography>
         </Box>

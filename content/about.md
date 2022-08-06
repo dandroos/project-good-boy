@@ -3,48 +3,34 @@ heading_banner:
   intro_text:
     en: Who are we?  What's our story?
     es: ¿Quienes somos? ¿Cuál es nuestra historia?
-  background_image: site_images/img_20210808_094105-01.jpeg
+  background_image: site_images/img_20210703_094424-01.jpeg
 content:
   en: >-
-    # Heading
+    # Our beginning
 
 
-    **Spanish**.  *Lorem ipsum dolor sit amet*, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit aliquam etiam erat velit scelerisque in dictum. Justo donec enim diam vulputate ut. At lectus urna duis convallis convallis. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Nunc congue nisi vitae suscipit tellus. A diam sollicitudin tempor id eu nisl. Morbi enim nunc faucibus a. Ut aliquam purus sit amet luctus venenatis lectus. Tincidunt id aliquet risus feugiat in ante metus dictum. Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Commodo viverra maecenas accumsan lacus. Arcu cursus euismod quis viverra nibh cras pulvinar.
+    What started out as a small group of girls has now grown into a much larger group of like-minded people of different nationalities, backgrounds and personalities. They each found they had one thing that brought them all together and that was to care for the abandoned dogs in the La Oliva area. The decision to form an Association came with the support of the La Oliva Town Hall with whom we have been working since the middle of 2012.
 
 
-    [Website](https://daveandrews.dev)
+    # Our objectives
 
 
-    1. First
-
-    2. Second
-
-
-    * First
-
-    * Second
-
-
-    Amet nulla facilisi morbi tempus iaculis urna id volutpat lacus. Urna nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc. Etiam erat velit scelerisque in. Non diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Arcu ac tortor dignissim convallis aenean et tortor at risus. Ac turpis egestas integer eget aliquet nibh praesent tristique. Diam in arcu cursus euismod quis viverra. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Dui accumsan sit amet nulla facilisi
+    To help the abandoned and ill-treated dogs in the La Oliva area. We are made up of volunteers who, in their spare time, clean the shelter, walk the dogs, transfer dogs and be in contact with foster homes and people wishing to adopt and those who have already adopted. We don´t have our own land so we are unable to collect dogs however we do collaborate with the La Oliva dog shelter and via our Facebook page and website, give advice on the steps to take if you find an abandoned dog.During this time we have successfully re-homed many dogs and plan to help to educate our future generation as to the importance of sterilization and the responsibility that having a dog entails. Our main objectives are to reduce the number of puppies born here on the island, which in the long term will drastically reduce the number of abandoned dogs we have here, and to help any dog who has suffered abuse and/or abandonment.
   es: >-
-    # Heading
+    # Nuestro Comienzo 
 
 
-    **Spanish**.  *Lorem ipsum dolor sit amet*, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit aliquam etiam erat velit scelerisque in dictum. Justo donec enim diam vulputate ut. At lectus urna duis convallis convallis. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Nunc congue nisi vitae suscipit tellus. A diam sollicitudin tempor id eu nisl. Morbi enim nunc faucibus a. Ut aliquam purus sit amet luctus venenatis lectus. Tincidunt id aliquet risus feugiat in ante metus dictum. Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Commodo viverra maecenas accumsan lacus. Arcu cursus euismod quis viverra nibh cras pulvinar.
+    Lo que comenzó como un pequeño grupo de chicas ha crecido hasta convertirse en un gran grupo de personas afines, de diferentes nacionalidades, orígenes y personalidades, pero cada uno de ellos descubrió que tenía algo que nos unía a todos, cuidar de los perros abandonados en el municipio de La Oliva. La decisión de formar una asociación vino junto con el apoyo del Ayuntamiento de La Oliva con quien hemos estado colaborando desde mediados del 2012.
 
 
-    [Website](https://daveandrews.dev)
+    # Nuestros Objetivos
 
 
-    1. First
-
-    2. Second
+    Ayudamos a los perros abandonados y maltratados del Municipio de la Oliva. Constituido por voluntarios que usan su tiempo libre en limpiar, traslados, contacto con casas de acogida y adoptantes. No disponemos de terreno propio, por lo que no realizamos recogida de perros, sin embargo colaboramos con la Perrera Municipal del Ayuntamiento de la Oliva y asesoramos a través de nuestra página de facebook y web sobre los pasos a seguir una vez encontrado un perro abandonado. 
 
 
-    * First
-
-    * Second
+    En todo este tiempo hemos logrado el realojamiento de cientos de perros y el plan es ayudar a educar a la próxima generación en cuanto a la importancia de la esterilización y la responsabilidad que conlleva tener un perro. 
 
 
-    Amet nulla facilisi morbi tempus iaculis urna id volutpat lacus. Urna nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc. Etiam erat velit scelerisque in. Non diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Arcu ac tortor dignissim convallis aenean et tortor at risus. Ac turpis egestas integer eget aliquet nibh praesent tristique. Diam in arcu cursus euismod quis viverra. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Dui accumsan sit amet nulla facilisi
+    Nuestros principales objetivos son: reducir el número de cachorros nacidos en la isla, que a la larga reducirá drásticamente la cantidad de perros abandonados que tenemos aquí y ayudar a cualquier perro que ha sufrido maltrato y/o el abandono.
 ---

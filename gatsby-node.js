@@ -3,6 +3,7 @@ const path = require("path")
 const { nav } = require("./src/siteLinks")
 const config = require("./gatsby-config")
 const { DogService } = require("mdi-material-ui")
+const { node } = require("prop-types")
 
 // CREATING A SLUG HOOK
 exports.onCreateNode = async ({ node, actions, getNode }) => {
@@ -37,6 +38,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                 fields {
                   slug
                 }
+                frontmatter {
+                  available
+                  photos {
+                    photo {
+                      childImageSharp {
+                        id
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -47,14 +58,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       reporter.panicOnBuild("There was a problem with dogsQuery")
       return
     }
-    dogsQuery.data.allFile.edges.forEach(({ node }) => {
+    const dogs = dogsQuery.data.allFile.edges.filter(
+      ({ node }) => node.childMarkdownRemark.frontmatter.available === "Yes"
+    )
+    dogs.forEach(({ node }) => {
       return createPage({
         path:
           language +
           nav.internal.filter((j) => j.id === "the-dogs")[0].url[language] +
           node.childMarkdownRemark.fields.slug,
         component: path.resolve("src/templates/dog.js"),
-        context: { id: node.childMarkdownRemark.id, language },
+        context: {
+          id: node.childMarkdownRemark.id,
+          language,
+          ogImgId:
+            node.childMarkdownRemark.frontmatter.photos[0].photo.childImageSharp
+              .id,
+        },
       })
     })
     nav.internal.map((link) => {

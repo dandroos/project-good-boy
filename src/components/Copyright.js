@@ -5,7 +5,7 @@ import { Typography } from "@mui/material"
 import { connect } from "react-redux"
 
 const Copyright = ({ language }) => {
-  const { site, file } = useStaticQuery(
+  const { site, file, declaration } = useStaticQuery(
     graphql`
       {
         site: site {
@@ -26,6 +26,20 @@ const Copyright = ({ language }) => {
             }
           }
         }
+        declaration: file(
+          sourceInstanceName: { eq: "content" }
+          extension: { eq: "md" }
+          name: { eq: "legal" }
+        ) {
+          childMarkdownRemark {
+            frontmatter {
+              charity_declaration {
+                en
+                es
+              }
+            }
+          }
+        }
       }
     `
   )
@@ -38,10 +52,20 @@ const Copyright = ({ language }) => {
     }
   }
   return (
-    <Typography variant="caption" display="block">
-      {file.childMarkdownRemark.frontmatter.all_content[language]} &copy;{" "}
-      {getCopyrightYear()} {site.siteMetadata.title}
-    </Typography>
+    <>
+      <Typography variant="caption" display="block" gutterBottom>
+        {file.childMarkdownRemark.frontmatter.all_content[language]} &copy;{" "}
+        {getCopyrightYear()} {site.siteMetadata.title}
+      </Typography>
+
+      <Typography variant="caption" display="block">
+        {
+          declaration.childMarkdownRemark.frontmatter.charity_declaration[
+            language
+          ]
+        }
+      </Typography>
+    </>
   )
 }
 

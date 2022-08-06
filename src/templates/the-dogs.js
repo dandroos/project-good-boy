@@ -1,45 +1,35 @@
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Fab,
-  Grid,
-  Typography,
-  useTheme,
-} from "@mui/material"
-import { Link, graphql } from "gatsby"
 import { setLanguage, setLocationId } from "../redux/actions"
 
-import BackgroundImage from "gatsby-background-image"
 import { DDS } from "../components/DogDataSanitizer"
-import { InformationVariant } from "mdi-material-ui"
+import DogCard from "../components/DogCard"
+import { Grid } from "@mui/material"
 import PageWrapper from "../components/PageWrapper"
 import React from "react"
+import ShareBar from "../components/ShareBar"
 import { connect } from "react-redux"
 import { convertToBgImage } from "gbimage-bridge"
 import { getImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
 import { nav } from "../siteLinks"
 import { useEffect } from "react"
 
 const TheDogs = ({ dispatch, data, pageContext }) => {
+  const { language } = pageContext
   useEffect(() => {
-    dispatch(setLanguage(pageContext.language))
+    dispatch(setLanguage(language))
     dispatch(setLocationId({ id: "the-dogs" }))
     //eslint-disable-next-line
   }, [])
-  const theme = useTheme()
   return (
     <>
       <PageWrapper
+        noCta
         title={
-          nav.internal.filter((i) => i.id === "the-dogs")[0].label[
-            pageContext.language
-          ]
+          nav.internal.filter((i) => i.id === "the-dogs")[0].label[language]
         }
         subtitle={
           data.content.childMarkdownRemark.frontmatter.heading_banner
-            .intro_text[pageContext.language]
+            .intro_text[language]
         }
         bgImage={
           data.content.childMarkdownRemark.frontmatter.heading_banner
@@ -47,91 +37,33 @@ const TheDogs = ({ dispatch, data, pageContext }) => {
         }
       >
         <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <ShareBar noDivider />
+          </Grid>
           {data.dogs.edges.map(({ node }) => {
-            const img = convertToBgImage(
-              getImage(node.childMarkdownRemark.frontmatter.photos[0].photo)
-            )
-            return (
-              <Grid
-                key={node.childMarkdownRemark.fields.slug}
-                item
-                xs={12}
-                md={6}
-              >
-                <Card
-                  elevation={2}
-                  sx={{
-                    backgroundColor: theme.palette.secondary.main,
-                    color: theme.palette.common.white,
-                  }}
-                >
-                  <CardActionArea
-                    component={Link}
-                    to={`/${
-                      pageContext.language +
-                      nav.internal.filter((i) => i.id === "the-dogs")[0].url[
-                        pageContext.language
-                      ] +
-                      node.childMarkdownRemark.fields.slug
-                    }`}
-                    sx={{
-                      position: "relative",
-                    }}
-                  >
-                    <Fab
-                      size="small"
-                      color="secondary"
-                      sx={{
-                        position: "absolute",
-                        top: 10,
-                        right: 10,
-                        zIndex: 500,
-                      }}
-                    >
-                      <InformationVariant />
-                    </Fab>
-                    <CardMedia
-                      component={BackgroundImage}
-                      sx={{ height: 400 }}
-                      {...img}
-                      alt={
-                        node.childMarkdownRemark.frontmatter.breed[
-                          pageContext.language
-                        ]
-                      }
-                    />
-                    <CardContent
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Typography variant="h4">
-                        {node.childMarkdownRemark.frontmatter.name}
-                      </Typography>
-                      <Typography variant="caption">
-                        {DDS.getSex({
-                          input: node.childMarkdownRemark.frontmatter.sex,
-                          language: pageContext.language,
-                        })}
-                        <Typography
-                          color="secondary.dark"
-                          display="inline"
-                          sx={{ mx: 1 }}
-                        >
-                          |
-                        </Typography>
-                        {DDS.getAge({
-                          dob: node.childMarkdownRemark.frontmatter.dob,
-                          language: pageContext.language,
-                        })}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </Grid>
-            )
+            if (node.childMarkdownRemark.frontmatter.available === "Yes") {
+              const img = convertToBgImage(
+                getImage(node.childMarkdownRemark.frontmatter.photos[0].photo)
+              )
+              return (
+                <DogCard
+                  name={node.childMarkdownRemark.frontmatter.name}
+                  breed={node.childMarkdownRemark.frontmatter.breed}
+                  age={DDS.getAge({
+                    dob: node.childMarkdownRemark.frontmatter.dob,
+                    language,
+                  })}
+                  img={img}
+                  slug={node.childMarkdownRemark.fields.slug}
+                  sex={DDS.getSex({
+                    input: node.childMarkdownRemark.frontmatter.sex,
+                    language,
+                  })}
+                />
+              )
+            } else {
+              return null
+            }
           })}
         </Grid>
       </PageWrapper>
@@ -161,6 +93,7 @@ export const query = graphql`
               slug
             }
             frontmatter {
+              available
               photos {
                 photo {
                   childImageSharp {

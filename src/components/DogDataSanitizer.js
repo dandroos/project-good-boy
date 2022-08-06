@@ -3,42 +3,9 @@ import "moment/locale/es"
 import moment from "moment"
 
 export const DDS = {
-  getYesOrNo: ({ input, language }) => {
-    switch (input) {
-      case 0:
-        switch (language) {
-          case "en":
-            return "No"
-          case "es":
-            return "No"
-          default:
-            return
-        }
-      case 1:
-        switch (language) {
-          case "en":
-            return "Yes"
-          case "es":
-            return "Sí"
-          default:
-            return
-        }
-      case 2:
-        switch (language) {
-          case "en":
-            return "TBC"
-          case "es":
-            return "Por confirmar"
-          default:
-            return
-        }
-      default:
-        return
-    }
-  },
   getSex: ({ input, language }) => {
     switch (input) {
-      case "0":
+      case "m":
         switch (language) {
           case "en":
             return `Male`
@@ -47,7 +14,7 @@ export const DDS = {
           default:
             return
         }
-      case "1":
+      case "f":
         switch (language) {
           case "en":
             return `Female`
@@ -85,7 +52,7 @@ export const DDS = {
   },
   getPPP: ({ input, language }) => {
     switch (input) {
-      case "0":
+      case "n":
         switch (language) {
           case "en":
             return "No"
@@ -94,7 +61,7 @@ export const DDS = {
           default:
             return
         }
-      case "1":
+      case "y":
         switch (language) {
           case "en":
             return "Yes"

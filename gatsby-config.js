@@ -6,13 +6,13 @@ module.exports = {
     shortTitle: `FDR`,
     description: `A volunteer association that rescues, rehabilitates and rehomes abandoned and mistreated dogs in Fuerteventura.`,
     descriptions: {
-      en: `A volunteer association that rescues, rehabilitates and rehomes abandoned and mistreated dogs in Fuerteventura.`,
-      es: `Asociación de voluntarios que rescata, rehabilita y acoge perros abandonados y maltratados en Fuerteventura.`,
+      en: `Fuerteventura Dog Rescue is a volunteer association that rescues, rehabilitates and rehomes abandoned and mistreated dogs in Fuerteventura.`,
+      es: `Fuerteventura Dog Rescue es una Asociación de voluntarios que rescata, rehabilita y acoge perros abandonados y maltratados en Fuerteventura.`,
       // de: `Eine Freiwilligenvereinigung, die verlassene und misshandelte Hunde auf Fuerteventura rettet, rehabilitiert und ihnen ein neues Zuhause gibt.`,
     },
     supportedLanguages: [`en`, `es`],
     author: `@dandrewsdeveloper`,
-    siteUrl: `https://mygatsbystarter.com/`,
+    siteUrl: `https://mygatsbystarter.com`,
   },
   plugins: [
     "gatsby-plugin-site-wrapper",

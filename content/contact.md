@@ -4,10 +4,6 @@ heading_banner:
     en: Want to get in touch with us?
     es: ¿Quieres ponerte en contacto con nosotros?
   background_image: site_images/img_20210704_091649-01.jpeg
-contact_and social:
-  facebook_username: "100064868670631"
-  email_address: info@fuerteventuradogrescue.org
-  instagram_username: fuerteventuradogrescue1
 contact_warning:
   heading:
     en: "IMPORTANT: Before you contact us..."
@@ -60,4 +56,11 @@ contact_form_fields:
   send:
     en: Send
     es: Enviar
+contact_form_notifications:
+  message_sent:
+    en: Message sent successfully!  We'll respond as soon as possible.
+    es: ¡Mensaje enviado con éxito! Responderemos lo antes posible.
+  message_not_sent:
+    en: There was a problem.  Please try again in a moment.
+    es: Había un problema. Vuelva a intentarlo en un momento.
 ---

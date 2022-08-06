@@ -29,6 +29,7 @@ const Navigation = ({
   language,
   atTop,
   howToPage,
+  dogPage,
   pageAnimating,
 }) => {
   const [anchorEl, setAnchorEl] = useState(null)
@@ -46,14 +47,12 @@ const Navigation = ({
         contact: file(
           sourceInstanceName: { eq: "content" }
           extension: { eq: "md" }
-          name: { eq: "contact" }
+          name: { eq: "contact_and_social" }
         ) {
           childMarkdownRemark {
             frontmatter {
-              contact_and_social {
-                facebook_username
-                instagram_username
-              }
+              facebook_username
+              instagram_username
             }
           }
         }
@@ -91,13 +90,23 @@ const Navigation = ({
               to={`/${language}`}
               underline="none"
             >
-              <StaticImage
-                src="../images/fdr-logo.png"
-                alt="FDR logo"
-                height={50}
-                quality={100}
-                placeholder="none"
-              />
+              {isMobile ? (
+                <StaticImage
+                  src="../images/fdr-logo.png"
+                  alt="FDR logo"
+                  height={40}
+                  quality={100}
+                  placeholder="none"
+                />
+              ) : (
+                <StaticImage
+                  src="../images/fdr-logo.png"
+                  alt="FDR logo"
+                  height={50}
+                  quality={100}
+                  placeholder="none"
+                />
+              )}
               {!isXS && (
                 <Typography
                   variant={isMobile ? "subtitle1" : "h5"}
@@ -124,6 +133,10 @@ const Navigation = ({
                           <Button
                             color="inherit"
                             sx={{
+                              fontWeight:
+                                i.id === "the-dogs" && dogPage
+                                  ? "bold"
+                                  : undefined,
                               ml: 3,
                               textTransform: "capitalize",
                               textShadow: `.1rem .1rem .6rem ${theme.palette.common.black}44`,
@@ -184,8 +197,9 @@ const Navigation = ({
                     sx={{ mr: ind === nav.external.length - 1 ? 2 : undefined }}
                     href={
                       i.baseUrl +
-                      contact.childMarkdownRemark.frontmatter
-                        .contact_and_social[`${i.id}_username`]
+                      contact.childMarkdownRemark.frontmatter[
+                        `${i.id}_username`
+                      ]
                     }
                     target="_blank"
                   >
@@ -216,6 +230,7 @@ const stp = (s) => ({
   atTop: s.atTop,
   howToPage: s.locationId.staticPage,
   pageAnimating: s.pageAnimating,
+  dogPage: s.locationId.dog,
 })
 
 export default connect(stp)(Navigation)

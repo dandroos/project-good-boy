@@ -41,9 +41,7 @@ const Hours = ({ isMobile, language }) => {
     <ListItem sx={{ display: "flex" }} divider>
       <ListItemText
         primary={day}
-        secondary={`${start.substring(0, 2)}:${start.substring(
-          2
-        )} - ${finish.substring(0, 2)}:${finish.substring(2)}`}
+        secondary={`${start} - ${finish}`}
         sx={{
           display: "flex",
           justifyContent: "space-between",
@@ -64,14 +62,21 @@ const Hours = ({ isMobile, language }) => {
       >
         <Divider />
         {data.file.childMarkdownRemark.frontmatter.schedule.map(
-          ({ item }, ind) => (
-            <ScheduleItem
-              key={ind}
-              day={item.day[language]}
-              start={item.open_time.toString()}
-              finish={item.close_time.toString()}
-            />
-          )
+          ({ item }, ind) => {
+            const timeSanitizer = (time) =>
+              `${time.substring(
+                time.charAt(0) === "0" ? 1 : 0,
+                2
+              )}:${time.substring(2)}`
+            return (
+              <ScheduleItem
+                key={ind}
+                day={item.day[language]}
+                start={timeSanitizer(item.open_time.toString())}
+                finish={timeSanitizer(item.close_time.toString())}
+              />
+            )
+          }
         )}
       </List>
     </Box>

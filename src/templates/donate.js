@@ -1,9 +1,12 @@
-import { Link, Typography } from "@mui/material"
+import { Box, Button, Link, Typography } from "@mui/material"
 import React, { useEffect } from "react"
 import { setLanguage, setLocationId } from "../redux/actions"
 
+import BankDetails from "../components/BankDetails"
 import PageWrapper from "../components/PageWrapper"
+import PayPalButton from "../components/PayPalButton"
 import ReactMarkdown from "react-markdown"
+import TeamingLogo from "../components/TeamingLogo"
 import { connect } from "react-redux"
 import { graphql } from "gatsby"
 import { nav } from "../siteLinks"
@@ -33,6 +36,7 @@ const Donate = ({ dispatch, pageContext, data }) => {
         data.file.childMarkdownRemark.frontmatter.heading_banner
           .background_image
       }
+      language={language}
     >
       <ReactMarkdown
         components={{
@@ -49,6 +53,43 @@ const Donate = ({ dispatch, pageContext, data }) => {
             </Link>
           ),
           p: ({ children }) => {
+            if (children[0] === "[[paypal]]") {
+              return (
+                <PayPalButton
+                  btnText={
+                    data.file.childMarkdownRemark.frontmatter.paypal_btn_text[
+                      language
+                    ]
+                  }
+                />
+              )
+            } else if (children[0] === "[[teaming]]") {
+              return (
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size="large"
+                  href={
+                    data.file.childMarkdownRemark.frontmatter.teaming_btn_link
+                  }
+                  target="_blank"
+                  startIcon={<TeamingLogo />}
+                  sx={{ mb: 4 }}
+                >
+                  {
+                    data.file.childMarkdownRemark.frontmatter.teaming_btn_text[
+                      language
+                    ]
+                  }
+                </Button>
+              )
+            } else if (children[0] === "[[bank_transfer]]") {
+              return (
+                <Box mb={4}>
+                  <BankDetails language={language} />
+                </Box>
+              )
+            }
             return <Typography paragraph>{children}</Typography>
           },
         }}
@@ -89,6 +130,15 @@ export const query = graphql`
             en
             es
           }
+          paypal_btn_text {
+            en
+            es
+          }
+          teaming_btn_text {
+            en
+            es
+          }
+          teaming_btn_link
         }
       }
     }

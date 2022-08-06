@@ -1,76 +1,28 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css"
-
 import { Box, Button, Container, Typography, useTheme } from "@mui/material"
 import { Link, graphql } from "gatsby"
 import React, { useEffect } from "react"
 import { setLanguage, setLocationId } from "../redux/actions"
 
-import BackgroundImage from "gatsby-background-image"
-import { Carousel } from "react-responsive-carousel"
 import { Dog } from "mdi-material-ui"
+import HeroSlideshow from "../components/HeroSlideshow"
 import Seo from "../components/seo"
 import { connect } from "react-redux"
-import { convertToBgImage } from "gbimage-bridge"
-import { getImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 import { nav } from "../siteLinks"
 
-const HomePage = ({ dispatch, pageContext, isLandscape, language, data }) => {
+const HomePage = ({ dispatch, pageContext, data }) => {
+  const { language } = pageContext
   useEffect(() => {
     dispatch(setLocationId({ id: "home" }))
-    dispatch(setLanguage(pageContext.language))
+    dispatch(setLanguage(language))
     //eslint-disable-next-line
   }, [])
   const theme = useTheme()
   return (
     <>
-      <Seo title="" />
+      <Seo title="" lang={language} />
       <Box height="100vh" width="100%" position="relative">
-        <Carousel
-          autoPlay
-          infiniteLoop
-          showArrows={false}
-          showIndicators={false}
-          showThumbs={false}
-          showStatus={false}
-          interval={5000}
-        >
-          {isLandscape
-            ? data.content.childMarkdownRemark.frontmatter.homepage_images_landscape.map(
-                (i, ind) => {
-                  const bgImg = convertToBgImage(getImage(i.image))
-
-                  return (
-                    <Box
-                      key={ind}
-                      position="absolute"
-                      height="100vh"
-                      width="100%"
-                      zIndex={5000}
-                      component={BackgroundImage}
-                      {...bgImg}
-                    />
-                  )
-                }
-              )
-            : data.content.childMarkdownRemark.frontmatter.homepage_images_portrait.map(
-                (i, ind) => {
-                  const bgImg = convertToBgImage(getImage(i.image))
-
-                  return (
-                    <Box
-                      key={ind}
-                      position="absolute"
-                      height="100vh"
-                      width="100%"
-                      zIndex={5000}
-                      component={BackgroundImage}
-                      {...bgImg}
-                    />
-                  )
-                }
-              )}
-        </Carousel>
+        <HeroSlideshow />
         <Box
           position="absolute"
           component={motion.div}
@@ -117,9 +69,9 @@ const HomePage = ({ dispatch, pageContext, isLandscape, language, data }) => {
               component={Link}
               to={(() =>
                 `/${
-                  pageContext.language +
+                  language +
                   nav.internal.filter((i) => i.id === "the-dogs")[0].url[
-                    pageContext.language
+                    language
                   ]
                 }`)()}
             >
@@ -136,12 +88,7 @@ const HomePage = ({ dispatch, pageContext, isLandscape, language, data }) => {
   )
 }
 
-const stp = (s) => ({
-  isLandscape: s.isLandscape,
-  language: s.language,
-})
-
-export default connect(stp)(HomePage)
+export default connect()(HomePage)
 
 export const query = graphql`
   {
@@ -159,30 +106,6 @@ export const query = graphql`
           homepage_cta {
             en
             es
-          }
-          homepage_images_landscape {
-            alt
-            image {
-              childImageSharp {
-                gatsbyImageData(
-                  quality: 75
-                  placeholder: BLURRED
-                  transformOptions: { grayscale: true }
-                )
-              }
-            }
-          }
-          homepage_images_portrait {
-            alt
-            image {
-              childImageSharp {
-                gatsbyImageData(
-                  quality: 75
-                  placeholder: BLURRED
-                  transformOptions: { grayscale: true }
-                )
-              }
-            }
           }
         }
       }

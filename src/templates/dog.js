@@ -4,9 +4,12 @@ import {
   Cake,
   CalendarMonth,
   Cat,
+  CheckCircle,
+  CloseCircle,
   Dog as DogIcon,
   ExclamationThick,
   GenderMaleFemale,
+  HelpCircle,
   HumanChild,
   Information,
   Paw,
@@ -33,11 +36,10 @@ import BackgroundImage from "gatsby-background-image"
 import { Carousel } from "react-responsive-carousel"
 import { DDS } from "../components/DogDataSanitizer"
 import PageWrapper from "../components/PageWrapper"
+import ShareBar from "../components/ShareBar"
 import { connect } from "react-redux"
 import { convertToBgImage } from "gbimage-bridge"
 import { graphql } from "gatsby"
-
-// import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 const Dog = ({ pageContext, dispatch, data, isMobile }) => {
   const language = pageContext.language
@@ -65,42 +67,114 @@ const Dog = ({ pageContext, dispatch, data, isMobile }) => {
   }
 
   const theme = useTheme()
-  const Detail = ({ primary, secondary, Icon }) => (
-    <ListItem divider>
-      <ListItemIcon>
-        <Icon />
-      </ListItemIcon>
-      <ListItemText
-        disableTypography
-        primary={
-          <Typography display="flex" alignItems="center" color="text.secondary">
-            {primary}
-            {primary === "PPP" ? (
-              <Tooltip title="Cock">
-                <Information fontSize="small" sx={{ ml: 1 }} />
-              </Tooltip>
-            ) : null}
-          </Typography>
-        }
-        secondary={secondary}
-        primaryTypographyProps={{ color: "text.secondary" }}
-        secondaryTypographyProps={{
-          variant: "body1",
-          color: "text.primary",
-        }}
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      />
-    </ListItem>
-  )
+
+  const IconSecondary = ({ answer }) => {
+    switch (answer) {
+      case "Yes":
+        return <CheckCircle color="success" />
+      case "No":
+        return <CloseCircle color="error" />
+      case "TBC":
+        return <HelpCircle color="info" />
+      default:
+        return null
+    }
+  }
+
+  const Detail = ({ primary, secondary, Icon, yOrN }) => {
+    if (!yOrN) {
+      return (
+        <ListItem divider>
+          <ListItemIcon>
+            <Icon />
+          </ListItemIcon>
+          <ListItemText
+            disableTypography
+            primary={
+              <Typography
+                display="flex"
+                alignItems="center"
+                color="text.secondary"
+              >
+                {primary}
+                {primary === "PPP" ? (
+                  <Tooltip
+                    title={
+                      data.ppp.childMarkdownRemark.frontmatter.ppp_text[
+                        language
+                      ]
+                    }
+                  >
+                    <Information fontSize="small" sx={{ ml: 1 }} />
+                  </Tooltip>
+                ) : null}
+              </Typography>
+            }
+            secondary={secondary}
+            primaryTypographyProps={{ color: "text.secondary" }}
+            secondaryTypographyProps={{
+              variant: "body1",
+              color: "text.primary",
+            }}
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          />
+        </ListItem>
+      )
+    } else {
+      return (
+        <ListItem divider>
+          <ListItemIcon>
+            <Icon />
+          </ListItemIcon>
+          <ListItemText
+            disableTypography
+            primary={
+              <Typography
+                display="flex"
+                alignItems="center"
+                color="text.secondary"
+              >
+                {primary}
+                {primary === "PPP" ? (
+                  <Tooltip
+                    title={
+                      data.ppp.childMarkdownRemark.frontmatter.ppp_text[
+                        language
+                      ]
+                    }
+                  >
+                    <Information fontSize="small" sx={{ ml: 1 }} />
+                  </Tooltip>
+                ) : null}
+              </Typography>
+            }
+            secondary={secondary}
+            primaryTypographyProps={{ color: "text.secondary" }}
+            secondaryTypographyProps={{
+              variant: "body1",
+              color: "text.primary",
+            }}
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          />
+        </ListItem>
+      )
+    }
+  }
   return (
     <PageWrapper
       title={dog.frontmatter.name}
       subtitle={dog.frontmatter.breed[language]}
       bgImage={dog.frontmatter.photos[0].photo}
+      ogImgOverride={data.ogImg.fixed.src}
+      language={language}
     >
       <Grid container spacing={2}>
         <Grid item xs={12} md={5}>
@@ -118,8 +192,6 @@ const Dog = ({ pageContext, dispatch, data, isMobile }) => {
                   <GatsbyImage
                     alt={dog.frontmatter.breed[language]}
                     image={getImage(i.photo)}
-                    height={80}
-                    width={80}
                     style={{ cursor: "pointer" }}
                   />
                 </CardActionArea>
@@ -210,26 +282,25 @@ const Dog = ({ pageContext, dispatch, data, isMobile }) => {
               <Divider />
               <Detail
                 primary={text.otherDogs[language]}
-                secondary={DDS.getYesOrNo({
-                  input: dog.frontmatter.sociability.dogs,
-                  language,
-                })}
+                secondary={
+                  <IconSecondary answer={dog.frontmatter.sociability.dogs} />
+                }
                 Icon={DogIcon}
               />
               <Detail
                 primary={text.cats[language]}
-                secondary={DDS.getYesOrNo({
-                  input: dog.frontmatter.sociability.cats,
-                  language,
-                })}
+                secondary={
+                  <IconSecondary answer={dog.frontmatter.sociability.cats} />
+                }
                 Icon={Cat}
               />
               <Detail
                 primary={text.children[language]}
-                secondary={DDS.getYesOrNo({
-                  input: dog.frontmatter.sociability.children,
-                  language,
-                })}
+                secondary={
+                  <IconSecondary
+                    answer={dog.frontmatter.sociability.children}
+                  />
+                }
                 Icon={HumanChild}
               />
             </List>
@@ -237,13 +308,16 @@ const Dog = ({ pageContext, dispatch, data, isMobile }) => {
         </Grid>
         <Grid item xs={12}>
           <Typography
-            variant="h5"
+            variant="h6"
             gutterBottom
             textAlign={isMobile ? "center" : undefined}
           >
             {text.meet[language]}
           </Typography>
           <Typography>{dog.frontmatter.description[language]}</Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <ShareBar dogName={dog.frontmatter.name} />
         </Grid>
       </Grid>
     </PageWrapper>
@@ -257,7 +331,7 @@ const stp = (s) => ({
 export default connect(stp)(Dog)
 
 export const query = graphql`
-  query Dog($id: String) {
+  query Dog($id: String, $ogImgId: String) {
     main: markdownRemark(id: { eq: $id }) {
       fields {
         slug
@@ -301,8 +375,32 @@ export const query = graphql`
           photo {
             childImageSharp {
               id
-              gatsbyImageData(quality: 90, placeholder: BLURRED, aspectRatio: 1)
+              gatsbyImageData(
+                quality: 90
+                placeholder: BLURRED
+                aspectRatio: 1
+                layout: FULL_WIDTH
+              )
             }
+          }
+        }
+      }
+    }
+    ogImg: imageSharp(id: { eq: $ogImgId }) {
+      fixed(height: 630, width: 1200) {
+        src
+      }
+    }
+    ppp: file(
+      sourceInstanceName: { eq: "content" }
+      extension: { eq: "md" }
+      name: { eq: "the-dogs" }
+    ) {
+      childMarkdownRemark {
+        frontmatter {
+          ppp_text {
+            en
+            es
           }
         }
       }

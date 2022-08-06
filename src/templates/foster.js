@@ -12,7 +12,7 @@ const Foster = ({ dispatch, pageContext, data }) => {
   const { language } = pageContext
 
   useEffect(() => {
-    dispatch(setLocationId({ id: "adopt", staticPage: true }))
+    dispatch(setLocationId({ id: "foster", staticPage: true }))
     dispatch(setLanguage(language))
     //eslint-disable-next-line
   }, [])
@@ -33,6 +33,7 @@ const Foster = ({ dispatch, pageContext, data }) => {
         data.file.childMarkdownRemark.frontmatter.heading_banner
           .background_image
       }
+      language={language}
     >
       <ReactMarkdown
         components={{

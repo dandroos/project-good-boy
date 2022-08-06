@@ -1,50 +1,46 @@
 ---
 heading_banner:
   intro_text:
-    en: Can you offer your free time to help the dogs?  We need you! 
-    es: ¿Puedes ofrecer tu tiempo libre para ayudar a los perros? ¡Te necesitamos! 
-  background_image: site_images/img_20210808_094105-01.jpeg
+    en: Can you offer your free time to help the dogs?  We need you!
+    es: ¿Puedes ofrecer tu tiempo libre para ayudar a los perros? ¡Te necesitamos!
+  background_image: site_images/img_20210704_091649-01.jpeg
 content:
   en: >-
-    # Heading
+    In order for our project to work, volunteers are very important.  The more
+    people we have helping, the more we can do and do it quicker.  Each within
+    their own means can help us by:
 
 
-    **Spanish**.  *Lorem ipsum dolor sit amet*, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit aliquam etiam erat velit scelerisque in dictum. Justo donec enim diam vulputate ut. At lectus urna duis convallis convallis. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Nunc congue nisi vitae suscipit tellus. A diam sollicitudin tempor id eu nisl. Morbi enim nunc faucibus a. Ut aliquam purus sit amet luctus venenatis lectus. Tincidunt id aliquet risus feugiat in ante metus dictum. Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Commodo viverra maecenas accumsan lacus. Arcu cursus euismod quis viverra nibh cras pulvinar.
+    * Collecting dogs from the vets. 
 
+    * Attending when we get called to collect a dog in an emergency situation. 
 
-    [Website](https://daveandrews.dev)
+    * Transporting dogs to the vets, their new home, the airport....
 
+    * Helping us to organise markets or to share your ideas on how you think you can help. 
 
-    1. First
+    * Helping us with follow-ups of our dogs once they have been adopted. 
 
-    2. Second
+    * Sharing photos and details of the dogs on social media. 
 
-
-    * First
-
-    * Second
-
-
-    Amet nulla facilisi morbi tempus iaculis urna id volutpat lacus. Urna nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc. Etiam erat velit scelerisque in. Non diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Arcu ac tortor dignissim convallis aenean et tortor at risus. Ac turpis egestas integer eget aliquet nibh praesent tristique. Diam in arcu cursus euismod quis viverra. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Dui accumsan sit amet nulla facilisi
+    * Seeking financial help with sponsors and donations.
   es: >-
-    # Heading
+    Para que nuestro proyecto funcione, los voluntarios son muy importantes.
+    Cuanta más gente tengamos ayudando, más podremos hacer y hacerlo más rápido.
+    Cada uno con sus propios medios nos puede ayudar:
 
 
-    **Spanish**.  *Lorem ipsum dolor sit amet*, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit aliquam etiam erat velit scelerisque in dictum. Justo donec enim diam vulputate ut. At lectus urna duis convallis convallis. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Nunc congue nisi vitae suscipit tellus. A diam sollicitudin tempor id eu nisl. Morbi enim nunc faucibus a. Ut aliquam purus sit amet luctus venenatis lectus. Tincidunt id aliquet risus feugiat in ante metus dictum. Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Commodo viverra maecenas accumsan lacus. Arcu cursus euismod quis viverra nibh cras pulvinar.
+    * Recogida de perros de los veterinarios.
 
+    * Atender cuando nos llaman para recoger un perro en una situación de emergencia.
 
-    [Website](https://daveandrews.dev)
+    * Transporte de perros a los veterinarios, su nuevo hogar, el aeropuerto....
 
+    * Ayudándonos a organizar mercados o compartir tus ideas sobre cómo crees que puedes ayudar.
 
-    1. First
+    * Ayudándonos con el seguimiento de nuestros perros una vez que han sido adoptados.
 
-    2. Second
+    * Compartir fotos y detalles de los perros en las redes sociales.
 
-
-    * First
-
-    * Second
-
-
-    Amet nulla facilisi morbi tempus iaculis urna id volutpat lacus. Urna nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc. Etiam erat velit scelerisque in. Non diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Arcu ac tortor dignissim convallis aenean et tortor at risus. Ac turpis egestas integer eget aliquet nibh praesent tristique. Diam in arcu cursus euismod quis viverra. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Dui accumsan sit amet nulla facilisi
+    * Búsqueda de ayuda financiera con patrocinadores y donaciones.
 ---

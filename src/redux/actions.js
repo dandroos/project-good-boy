@@ -9,6 +9,7 @@ import {
   SET_PAGE_ANIMATING,
   SET_SHOW_MOBILE_MENU,
   SET_SITE_READY,
+  SET_TOAST,
 } from "./types"
 
 export const setIsMobile = (payload) => ({
@@ -58,5 +59,10 @@ export const setShowMobileMenu = (payload) => ({
 
 export const setPageAnimating = (payload) => ({
   type: SET_PAGE_ANIMATING,
+  payload,
+})
+
+export const setToast = (payload) => ({
+  type: SET_TOAST,
   payload,
 })

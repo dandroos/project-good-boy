@@ -1,3 +1,11 @@
+import * as React from "react"
+
+import { graphql, useStaticQuery } from "gatsby"
+
+import { Helmet } from "react-helmet"
+import PropTypes from "prop-types"
+import defOgImage from "../images/def_og.png"
+
 /**
  * SEO component that queries for data with
  *  Gatsby's useStaticQuery React hook
@@ -5,14 +13,7 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from "react"
-
-import { graphql, useStaticQuery } from "gatsby"
-
-import { Helmet } from "react-helmet"
-import PropTypes from "prop-types"
-
-function Seo({ description, meta, title }) {
+function Seo({ description, meta, title, lang, ogImg }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -20,6 +21,10 @@ function Seo({ description, meta, title }) {
           siteMetadata {
             title
             description
+            descriptions {
+              en
+              es
+            }
             author
             siteUrl
           }
@@ -28,12 +33,13 @@ function Seo({ description, meta, title }) {
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || site.siteMetadata.descriptions[lang]
   const defaultTitle = site.siteMetadata?.title
+  const metaOgImg = ogImg || defOgImage
   return (
     <Helmet
       htmlAttributes={{
-        lang: "en",
+        lang,
       }}
       title={title ? `${title} | ${defaultTitle}` : defaultTitle}
       meta={[
@@ -53,10 +59,10 @@ function Seo({ description, meta, title }) {
           property: `og:type`,
           content: `website`,
         },
-        // {
-        //   property: `og:image`,
-        //   content: site.siteMetadata.siteUrl + ogImage,
-        // },
+        {
+          property: `og:image`,
+          content: site.siteMetadata.siteUrl + metaOgImg,
+        },
         {
           name: `twitter:card`,
           content: `summary`,

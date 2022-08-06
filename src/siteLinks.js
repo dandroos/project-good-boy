@@ -47,11 +47,11 @@ module.exports.nav = {
           id: "foster",
           label: {
             en: "Foster",
-            es: "Coger",
+            es: "Acoger",
           },
           url: {
             en: "/foster",
-            es: "/coger",
+            es: "/acoger",
           },
         },
         {
@@ -69,11 +69,11 @@ module.exports.nav = {
           id: "volunteer",
           label: {
             en: "Volunteer",
-            es: "Ser Voluntario",
+            es: "Voluntario",
           },
           url: {
             en: "/volunteer",
-            es: "/ser_voluntario",
+            es: "/voluntario",
           },
         },
       ],
