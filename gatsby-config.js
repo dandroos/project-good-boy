@@ -15,8 +15,8 @@ module.exports = {
     siteUrl: `https://fuerteventura-dog-rescue.netlify.app`,
   },
   plugins: [
-    "gatsby-plugin-site-wrapper",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-site-wrapper",
     "gatsby-plugin-emotion",
     "gatsby-plugin-redux",
     `gatsby-plugin-image`,

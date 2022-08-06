@@ -35,6 +35,7 @@ const TheDogs = ({ dispatch, data, pageContext }) => {
           data.content.childMarkdownRemark.frontmatter.heading_banner
             .background_image
         }
+        language={language}
       >
         <Grid container spacing={2}>
           <Grid item xs={12}>
