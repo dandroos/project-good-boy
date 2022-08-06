@@ -12,7 +12,7 @@ module.exports = {
     },
     supportedLanguages: [`en`, `es`],
     author: `@dandrewsdeveloper`,
-    siteUrl: `https://mygatsbystarter.com`,
+    siteUrl: `https://fuerteventura-dog-rescue.netlify.app`,
   },
   plugins: [
     "gatsby-plugin-site-wrapper",
