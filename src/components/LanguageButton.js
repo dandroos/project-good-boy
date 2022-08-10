@@ -65,11 +65,15 @@ const LanguageButton = ({ noEdge, language, locationId }) => {
                   })[0].url[lang]
                 }${locationId.id !== `home` ? "/" : ""}`
               }
-              navigate(
-                `/${lang}${redirectUrl}${
-                  locationId.dog ? locationId.dog.substring(1) : ""
-                }`
-              )
+              // navigate(
+              //   `/${lang}${redirectUrl}${
+              //     locationId.dog ? locationId.dog.substring(1) : ""
+              //   }`
+              // )
+              window.location = `/${lang}${redirectUrl}${
+                locationId.dog ? locationId.dog.substring(1) : ""
+              }`
+
               handleClose()
             }}
           >

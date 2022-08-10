@@ -47,9 +47,13 @@ const LanguageUtility = ({ dispatch, language, disablePrompt, locationId }) => {
             })[0].url[browserLang]
           }${locationId.id !== `home` ? "/" : ""}`
         }
-        navigate(
-          `/${browserLang}${redirectUrl}${locationId.dog ? locationId.dog : ""}`
-        )
+        // navigate(
+        //   `/${browserLang}${redirectUrl}${locationId.dog ? locationId.dog : ""}`
+        // )
+        window.location = `/${browserLang}${redirectUrl}${
+          locationId.dog ? locationId.dog : ""
+        }`
+
         break
       case "no":
         // do more stuff

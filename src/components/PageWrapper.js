@@ -13,11 +13,16 @@ import BackgroundImage from "gatsby-background-image"
 import { Link } from "gatsby"
 import { Phone } from "mdi-material-ui"
 import React from "react"
-import Seo from "./seo"
 import { connect } from "react-redux"
 import { convertToBgImage } from "gbimage-bridge"
 import { getImage } from "gatsby-plugin-image"
 import { nav } from "../siteLinks"
+
+// import Seo from "./seo"
+
+
+
+
 
 const PageWrapper = ({
   title,
@@ -28,6 +33,7 @@ const PageWrapper = ({
   noCta,
   language,
   ogImgOverride,
+  noSEO,
 }) => {
   const theme = useTheme()
 
@@ -43,11 +49,13 @@ const PageWrapper = ({
   }
   return (
     <>
-      <Seo
-        title={title}
-        lang={language}
-        ogImg={ogImgOverride ? ogImgOverride : undefined}
-      />
+      {/* {!noSEO && (
+        <Seo
+          title={title}
+          lang={language}
+          ogImg={ogImgOverride ? ogImgOverride : undefined}
+        />
+      )} */}
       <Box
         sx={{
           py: 10,

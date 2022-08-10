@@ -35,6 +35,7 @@ import { setLanguage, setLocationId } from "../redux/actions"
 import BackgroundImage from "gatsby-background-image"
 import { Carousel } from "react-responsive-carousel"
 import { DDS } from "../components/DogDataSanitizer"
+import HeadComponent from "../components/Head"
 import PageWrapper from "../components/PageWrapper"
 import ShareBar from "../components/ShareBar"
 import { connect } from "react-redux"
@@ -173,8 +174,8 @@ const Dog = ({ pageContext, dispatch, data, isMobile }) => {
       title={dog.frontmatter.name}
       subtitle={dog.frontmatter.breed[language]}
       bgImage={dog.frontmatter.photos[0].photo}
-      ogImgOverride={data.ogImg.fixed.src}
       language={language}
+      noSEO
     >
       <Grid container spacing={2}>
         <Grid item xs={12} md={5}>
@@ -329,6 +330,14 @@ const stp = (s) => ({
 })
 
 export default connect(stp)(Dog)
+
+export const Head = ({ data, pageContext }) => (
+  <HeadComponent
+    lang={pageContext.language}
+    title={data.main.frontmatter.name}
+    ogImgOverride={data.ogImg.fixed.src}
+  />
+)
 
 export const query = graphql`
   query Dog($id: String, $ogImgId: String) {

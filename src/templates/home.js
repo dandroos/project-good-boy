@@ -4,11 +4,13 @@ import React, { useEffect } from "react"
 import { setLanguage, setLocationId } from "../redux/actions"
 
 import { Dog } from "mdi-material-ui"
+import HeadComponent from "../components/Head"
 import HeroSlideshow from "../components/HeroSlideshow"
-import Seo from "../components/seo"
 import { connect } from "react-redux"
 import { motion } from "framer-motion"
 import { nav } from "../siteLinks"
+
+// import Seo from "../components/seo"
 
 const HomePage = ({ dispatch, pageContext, data }) => {
   const { language } = pageContext
@@ -20,7 +22,7 @@ const HomePage = ({ dispatch, pageContext, data }) => {
   const theme = useTheme()
   return (
     <>
-      <Seo title="" lang={language} />
+      {/* <Seo title="" lang={language} /> */}
       <Box height="100vh" width="100%" position="relative">
         <HeroSlideshow />
         <Box
@@ -89,6 +91,10 @@ const HomePage = ({ dispatch, pageContext, data }) => {
 }
 
 export default connect()(HomePage)
+
+export const Head = ({ pageContext }) => (
+  <HeadComponent lang={pageContext.language} />
+)
 
 export const query = graphql`
   {

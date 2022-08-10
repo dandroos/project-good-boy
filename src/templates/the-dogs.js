@@ -3,6 +3,7 @@ import { setLanguage, setLocationId } from "../redux/actions"
 import { DDS } from "../components/DogDataSanitizer"
 import DogCard from "../components/DogCard"
 import { Grid } from "@mui/material"
+import HeadComponent from "../components/Head"
 import PageWrapper from "../components/PageWrapper"
 import React from "react"
 import ShareBar from "../components/ShareBar"
@@ -73,6 +74,17 @@ const TheDogs = ({ dispatch, data, pageContext }) => {
 }
 
 export default connect()(TheDogs)
+
+export const Head = ({ pageContext }) => (
+  <HeadComponent
+    lang={pageContext.language}
+    title={
+      nav.internal.filter((i) => i.id === "the-dogs")[0].label[
+        pageContext.language
+      ]
+    }
+  />
+)
 
 export const query = graphql`
   {

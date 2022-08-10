@@ -5,6 +5,7 @@ import { setLanguage, setLocationId } from "../redux/actions"
 
 import CommonQueries from "../components/CommonQueries"
 import ContactForm from "../components/ContactForm"
+import HeadComponent from "../components/Head"
 import PageWrapper from "../components/PageWrapper"
 import { connect } from "react-redux"
 import { graphql } from "gatsby"
@@ -88,6 +89,17 @@ const Contact = ({ data, dispatch, pageContext }) => {
 }
 
 export default connect()(Contact)
+
+export const Head = ({ pageContext }) => (
+  <HeadComponent
+    lang={pageContext.language}
+    title={
+      nav.internal.filter((i) => i.id === "contact")[0].label[
+        pageContext.language
+      ]
+    }
+  />
+)
 
 export const query = graphql`
   {

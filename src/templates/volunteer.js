@@ -2,6 +2,7 @@ import { Link, Typography } from "@mui/material"
 import React, { useEffect } from "react"
 import { setLanguage, setLocationId } from "../redux/actions"
 
+import HeadComponent from "../components/Head"
 import PageWrapper from "../components/PageWrapper"
 import ReactMarkdown from "react-markdown"
 import { connect } from "react-redux"
@@ -61,6 +62,19 @@ const Volunteer = ({ dispatch, pageContext, data }) => {
 }
 
 export default connect()(Volunteer)
+
+export const Head = ({ pageContext }) => (
+  <HeadComponent
+    lang={pageContext.language}
+    title={
+      nav.internal
+        .filter((i) => i.id === "how-to")[0]
+        .options.filter((i) => i.id === "volunteer")[0].label[
+        pageContext.language
+      ]
+    }
+  />
+)
 
 export const query = graphql`
   {

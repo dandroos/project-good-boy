@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { graphql, navigate, useStaticQuery } from "gatsby"
 
-import Seo from "../components/seo"
+import HeadComponent from "../components/Head"
 import detectBrowserLanguage from "detect-browser-language"
 
 const Index = () => {
@@ -31,7 +31,9 @@ const Index = () => {
     }
     //eslint-disable-next-line
   }, [])
-  return <Seo title="" lang="es" />
+  return null
 }
 
 export default Index
+
+export const Head = ({ pageContext }) => <HeadComponent lang="es" />

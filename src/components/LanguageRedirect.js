@@ -21,11 +21,14 @@ const LanguageRedirect = ({ newLang, language, locationId }) => {
           })[0].url[lang]
         }${locationId.id !== `home` ? "/" : ""}`
       }
-      return navigate(
-        `/${newLang}${redirectUrl}${
-          locationId.dog ? locationId.dog.substring(1) : ""
-        }`
-      )
+      // return navigate(
+      //   `/${newLang}${redirectUrl}${
+      //     locationId.dog ? locationId.dog.substring(1) : ""
+      //   }`
+      // )
+      return (window.location = `/${newLang}${redirectUrl}${
+        locationId.dog ? locationId.dog.substring(1) : ""
+      }`)
     }
   }, [language])
 
