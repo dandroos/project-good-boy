@@ -532,7 +532,7 @@ collections:
                   - label: Español              
                     name: es
   - label: Other 
-    name: legal_and_location
+    name: other 
     media_folder: ./site_images
     public_folder: site_images
     editor:
@@ -576,6 +576,20 @@ collections:
         fields:
           - label: Charity declaration
             name: charity_declaration
+            widget: object
+            fields:
+              - label: English
+                name: en
+                widget: text
+              - label: Español              
+                name: es
+                widget: text
+      - label: Langugage
+        name: language
+        file: content/language.md
+        fields:
+          - label: Redirect prompt
+            name: redirect_prompt
             widget: object
             fields:
               - label: English

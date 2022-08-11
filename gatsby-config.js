@@ -8,7 +8,6 @@ module.exports = {
     descriptions: {
       en: `Fuerteventura Dog Rescue is a volunteer association that rescues, rehabilitates and rehomes abandoned and mistreated dogs in Fuerteventura.`,
       es: `Fuerteventura Dog Rescue es una Asociación de voluntarios que rescata, rehabilita y acoge perros abandonados y maltratados en Fuerteventura.`,
-      // de: `Eine Freiwilligenvereinigung, die verlassene und misshandelte Hunde auf Fuerteventura rettet, rehabilitiert und ihnen ein neues Zuhause gibt.`,
     },
     supportedLanguages: [`en`, `es`],
     author: `@dandrewsdeveloper`,
@@ -16,28 +15,13 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-site-wrapper",
-    // "gatsby-plugin-emotion",
     `gatsby-plugin-mui-emotion`,
-    // "gatsby-plugin-react-helmet",
     "gatsby-plugin-redux",
     `gatsby-plugin-image`,
     `gatsby-plugin-netlify`,
 
     // NETLIFY CMS
     `gatsby-plugin-netlify-cms`,
-
-    // WEB FONT LOADER (Use if you need to source fonts locally)
-    // NOTE: They will need to be added to /static/fonts/fonts.css
-    // Read the guide here: https://compiledsuccessfully.dev/self-hosting-fonts-in-gatsby/
-    // {
-    //   resolve: "gatsby-plugin-web-font-loader",
-    //   options: {
-    //     custom: {
-    //       families: ["forte"],
-    //       urls: ["/fonts/fonts.css"],
-    //     },
-    //   },
-    // },
 
     {
       resolve: `gatsby-source-filesystem`,
@@ -61,8 +45,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    // NETLIFY
-    // `gatsby-plugin-netlify`,
     `gatsby-plugin-sharp`,
 
     // MARKDOWN TRANSFORMER
@@ -110,8 +92,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-material-ui-starter`,
-        short_name: `gatsby-starter`,
+        name: `fuerteventura-dog-rescue`,
+        short_name: `fdr`,
         start_url: `/`,
         background_color: style.palette.main,
         // This will impact how browsers show your PWA/website

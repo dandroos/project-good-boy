@@ -70,7 +70,7 @@ const Layout = ({
   return (
     typeof window !== "undefined" && (
       <>
-        <LanguageUtility />
+        {language && <LanguageUtility />}
         <Toast />
         <Navigation
           home={locationId.id === "home"}

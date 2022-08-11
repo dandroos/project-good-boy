@@ -52,7 +52,7 @@ export const DDS = {
   },
   getPPP: ({ input, language }) => {
     switch (input) {
-      case "n":
+      case "No":
         switch (language) {
           case "en":
             return "No"
@@ -61,7 +61,7 @@ export const DDS = {
           default:
             return
         }
-      case "y":
+      case "Yes":
         switch (language) {
           case "en":
             return "Yes"

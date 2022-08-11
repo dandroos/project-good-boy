@@ -2,8 +2,6 @@ const { createFilePath } = require("gatsby-source-filesystem")
 const path = require("path")
 const { nav } = require("./src/siteLinks")
 const config = require("./gatsby-config")
-const { DogService } = require("mdi-material-ui")
-const { node } = require("prop-types")
 
 // CREATING A SLUG HOOK
 exports.onCreateNode = async ({ node, actions, getNode }) => {

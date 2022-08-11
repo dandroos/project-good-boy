@@ -57,21 +57,13 @@ export const theme = responsiveFontSizes(
       h4: { fontWeight: 700 },
       h5: { fontWeight: 700 },
       h6: { fontWeight: 700 },
-      // nav: {
-      //   fontSize: "1.1rem",
-      //   lineHeight: 1,
-      //   textTransform: "uppercase",
-      //   letterSpacing: 1.5,
-      // },
     },
     components: {
       MuiButton: {
         defaultProps: {
           color: "inherit",
           sx: {
-            // textTransform: "capitalize",
           },
-          // variant: "contained",
         },
       },
       MuiTextField: {

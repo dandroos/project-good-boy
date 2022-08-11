@@ -1,6 +1,6 @@
 import { IconButton, ListItemIcon, Menu, MenuItem } from "@mui/material"
 import React, { useState } from "react"
-import { graphql, navigate, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 import ReactCountryFlag from "react-country-flag"
 import { connect } from "react-redux"
@@ -32,7 +32,7 @@ const LanguageButton = ({ noEdge, language, locationId }) => {
       <IconButton
         size="small"
         edge={noEdge ? undefined : "end"}
-        onClick={(e) => setAnchorEl(e.currentTarget)}
+        onClick={(e) => setAnchorEl(e.target)}
       >
         <ReactCountryFlag
           countryCode={(() => {
@@ -53,6 +53,7 @@ const LanguageButton = ({ noEdge, language, locationId }) => {
           <MenuItem
             key={ind}
             onClick={() => {
+              localStorage.setItem("fdr_def_lang", lang)
               let redirectUrl
               if (locationId.staticPage) {
                 redirectUrl = internal
@@ -65,11 +66,6 @@ const LanguageButton = ({ noEdge, language, locationId }) => {
                   })[0].url[lang]
                 }${locationId.id !== `home` ? "/" : ""}`
               }
-              // navigate(
-              //   `/${lang}${redirectUrl}${
-              //     locationId.dog ? locationId.dog.substring(1) : ""
-              //   }`
-              // )
               window.location = `/${lang}${redirectUrl}${
                 locationId.dog ? locationId.dog.substring(1) : ""
               }`

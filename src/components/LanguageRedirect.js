@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 
 import { connect } from "react-redux"
 import { nav } from "../siteLinks"
-import { navigate } from "gatsby"
 
 const LanguageRedirect = ({ newLang, language, locationId }) => {
   const { internal } = nav
@@ -21,11 +20,6 @@ const LanguageRedirect = ({ newLang, language, locationId }) => {
           })[0].url[lang]
         }${locationId.id !== `home` ? "/" : ""}`
       }
-      // return navigate(
-      //   `/${newLang}${redirectUrl}${
-      //     locationId.dog ? locationId.dog.substring(1) : ""
-      //   }`
-      // )
       return (window.location = `/${newLang}${redirectUrl}${
         locationId.dog ? locationId.dog.substring(1) : ""
       }`)

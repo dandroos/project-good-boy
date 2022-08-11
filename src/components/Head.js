@@ -21,7 +21,11 @@ const HeadComponent = ({ description, title, lang, ogImgOverride }) => {
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="true"
+      />
       <link
         href={`https://fonts.googleapis.com/css2?family=${typography.fontFamily
           .split(" ")
@@ -29,46 +33,6 @@ const HeadComponent = ({ description, title, lang, ogImgOverride }) => {
         rel="stylesheet"
       ></link>
     </>
-    // <Helmet
-    //   htmlAttributes={{
-    //     lang,
-    //   }}
-    //   title={title ? `${title} | ${defaultTitle}` : defaultTitle}
-    //   meta={[
-    //     {
-    //       name: `description`,
-    //       content: metaDescription,
-    //     },
-    //     {
-    //       property: `og:title`,
-    //       content: title ? `${title} | ${defaultTitle}` : defaultTitle,
-    //     },
-    //     {
-    //       property: `og:description`,
-    //       content: metaDescription,
-    //     },
-    //     {
-    //       property: `og:type`,
-    //       content: `website`,
-    //     },
-    //     {
-    //       property: `og:image`,
-    //       content: site.siteMetadata.siteUrl + metaOgImg,
-    //     },
-    //     {
-    //       name: `twitter:card`,
-    //       content: `summary`,
-    //     },
-    //     {
-    //       name: `twitter:title`,
-    //       content: title ? `${title} | ${defaultTitle}` : defaultTitle,
-    //     },
-    //     {
-    //       name: `twitter:description`,
-    //       content: metaDescription,
-    //     },
-    //   ].concat(meta)}
-    // />
   )
 }
 

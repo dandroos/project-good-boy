@@ -89,17 +89,6 @@ module.exports.nav = {
         es: "/conocenos",
       },
     },
-    // {
-    //   id: "articles",
-    //   label: {
-    //     en: "Articles",
-    //     es: "Artículos",
-    //   },
-    //   url: {
-    //     en: "/articles",
-    //     es: "/articulos",
-    //   },
-    // },
     {
       id: "contact",
       label: {

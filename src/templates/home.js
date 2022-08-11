@@ -10,8 +10,6 @@ import { connect } from "react-redux"
 import { motion } from "framer-motion"
 import { nav } from "../siteLinks"
 
-// import Seo from "../components/seo"
-
 const HomePage = ({ dispatch, pageContext, data }) => {
   const { language } = pageContext
   useEffect(() => {
@@ -22,7 +20,6 @@ const HomePage = ({ dispatch, pageContext, data }) => {
   const theme = useTheme()
   return (
     <>
-      {/* <Seo title="" lang={language} /> */}
       <Box height="100vh" width="100%" position="relative">
         <HeroSlideshow />
         <Box

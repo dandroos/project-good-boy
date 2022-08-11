@@ -8,21 +8,44 @@ import {
   Portal,
   Typography,
 } from "@mui/material"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import { setDisablePrompt, setLanguage } from "../redux/actions"
 
 import { connect } from "react-redux"
 import detectBrowserLanguage from "detect-browser-language"
 import { nav } from "../siteLinks"
-import { navigate } from "gatsby"
 
-const LanguageUtility = ({ dispatch, language, disablePrompt, locationId }) => {
-  const [showDialog, setShowDialog] = useState(false)
+const LanguageUtility = ({ dispatch, language, locationId }) => {
+  const [dialogLang, setDialogLang] = useState(false)
   const [checked, setChecked] = useState(false)
   const { internal } = nav
 
+  const { siteQuery, languageQuery } = useStaticQuery(graphql`
+    {
+      siteQuery: site {
+        siteMetadata {
+          supportedLanguages
+        }
+      }
+      languageQuery: file(
+        sourceInstanceName: { eq: "content" }
+        name: { eq: "language" }
+      ) {
+        childMarkdownRemark {
+          frontmatter {
+            redirect_prompt {
+              en
+              es
+            }
+          }
+        }
+      }
+    }
+  `)
+
   const handleClose = () => {
-    setShowDialog(false)
+    setDialogLang(false)
   }
 
   const handleClick = (e) => {
@@ -34,6 +57,7 @@ const LanguageUtility = ({ dispatch, language, disablePrompt, locationId }) => {
     switch (e.target.id) {
       case "yes":
         const browserLang = detectBrowserLanguage().substr(0, 2)
+        localStorage.setItem("fdr_def_lang", browserLang)
         dispatch(setLanguage(browserLang))
         let redirectUrl
         if (locationId.staticPage) {
@@ -47,35 +71,63 @@ const LanguageUtility = ({ dispatch, language, disablePrompt, locationId }) => {
             })[0].url[browserLang]
           }${locationId.id !== `home` ? "/" : ""}`
         }
-        // navigate(
-        //   `/${browserLang}${redirectUrl}${locationId.dog ? locationId.dog : ""}`
-        // )
         window.location = `/${browserLang}${redirectUrl}${
           locationId.dog ? locationId.dog : ""
         }`
 
         break
       case "no":
-        // do more stuff
+        // no further action required
         break
       default:
         break
     }
   }
+
+  useEffect(() => {
+    const browserLang = detectBrowserLanguage().substr(0, 2)
+    if (
+      siteQuery.siteMetadata.supportedLanguages.includes(browserLang) &&
+      !localStorage.getItem("fdr_ignore_lang_redirect") &&
+      language !== browserLang &&
+      localStorage.getItem("fdr_def_lang") !== language
+    ) {
+      setDialogLang(browserLang)
+    }
+    //eslint-disable-next-line
+  }, [])
+  const text = {
+    dontShow: {
+      en: "Don't show this again in future",
+      es: "No volver a mostrar este aviso",
+    },
+    yes: {
+      en: "Yes",
+      es: "Sí",
+    },
+    no: {
+      en: "No",
+      es: "No",
+    },
+  }
   return (
     <>
       <Portal>
-        <Dialog open={showDialog} maxWidth="sm" fullWidth>
+        <Dialog open={Boolean(dialogLang)} maxWidth="sm" fullWidth>
           <DialogContent>
             <Typography>
-              Would you like to change the language to your browser default?
+              {
+                languageQuery.childMarkdownRemark.frontmatter.redirect_prompt[
+                  dialogLang
+                ]
+              }
             </Typography>
           </DialogContent>
           <DialogActions>
             <FormControlLabel
               label={
                 <Typography variant="caption">
-                  Don't show this again in future
+                  {text.dontShow[dialogLang]}
                 </Typography>
               }
               control={
@@ -87,10 +139,10 @@ const LanguageUtility = ({ dispatch, language, disablePrompt, locationId }) => {
               disableTypography
             />
             <Button id="yes" color="success" onClick={handleClick}>
-              Yes
+              {text.yes[dialogLang]}
             </Button>
             <Button id="no" color="error" onClick={handleClick}>
-              No
+              {text.no[dialogLang]}
             </Button>
           </DialogActions>
         </Dialog>
