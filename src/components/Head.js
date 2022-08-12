@@ -1,6 +1,5 @@
 import React from "react"
 import defOgImage from "../images/def_og.png"
-import { typography } from "../../style"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 
 const HeadComponent = ({ description, title, lang, ogImgOverride }) => {
@@ -20,18 +19,6 @@ const HeadComponent = ({ description, title, lang, ogImgOverride }) => {
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossOrigin="true"
-      />
-      <link
-        href={`https://fonts.googleapis.com/css2?family=${typography.fontFamily
-          .split(" ")
-          .join("+")}:wght@${typography.fontWeights.join(";")}&display=swap`}
-        rel="stylesheet"
-      ></link>
     </>
   )
 }
