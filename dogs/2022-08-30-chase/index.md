@@ -4,8 +4,8 @@ breed:
   en: Podenco
   es: Podenco
 sex: m
-dob: 2021-03-01T11:55:42.144Z
-date_came_in: 2022-08-30T10:55:42.169Z
+dob: 2021-01-01T11:55:42.144Z
+date_came_in: 2022-06-27T10:55:42.169Z
 photos:
   - photo: whatsapp-image-2022-08-29-at-5.31.52-pm-1-.jpeg
   - photo: whatsapp-image-2022-08-29-at-5.31.50-pm.jpeg
@@ -44,7 +44,7 @@ description:
 
     encantan las golosinas y que le hagan cosquillas en sus grandes orejas.
 sociability:
-  dogs: Yes
-  cats: Yes
-  children: Yes
+  dogs: TBC
+  cats: TBC
+  children: TBC
 ---

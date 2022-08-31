@@ -4,8 +4,8 @@ breed:
   en: Bardino
   es: Bardino
 sex: m
-dob: 2022-08-30T11:16:17.383Z
-date_came_in: 2022-08-30T11:16:17.397Z
+dob: 2014-07-01T11:16:17.383Z
+date_came_in: 2022-07-04T11:16:17.397Z
 photos:
   - photo: tucker1.jpeg
 ppp: No
@@ -22,7 +22,7 @@ description:
 
     general. No hay nada que le guste más que los mimos.
 sociability:
-  dogs: Yes
-  cats: Yes
-  children: Yes
+  dogs: TBC
+  cats: TBC
+  children: TBC
 ---

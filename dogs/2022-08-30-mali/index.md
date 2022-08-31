@@ -4,8 +4,8 @@ breed:
   en: Pointer-cross
   es: Raza mixta de pointer
 sex: f
-dob: 2022-08-30T11:08:51.244Z
-date_came_in: 2022-08-30T11:08:51.257Z
+dob: 2022-03-16T11:08:51.244Z
+date_came_in: 2022-05-09T11:08:51.257Z
 photos:
   - photo: mali1.jpeg
   - photo: mali2.jpeg
@@ -35,7 +35,7 @@ description:
 
     que aprender, pero ya es una cachorrita preciosa, inteligente y extremadamente dulce.
 sociability:
-  dogs: Yes
-  cats: Yes
-  children: Yes
+  dogs: TBC
+  cats: TBC
+  children: TBC
 ---

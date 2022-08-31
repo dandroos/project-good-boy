@@ -4,8 +4,8 @@ breed:
   es: Cruce de Staffi y Pitbull
   en: Staffi/Pitbull cross
 sex: f
-dob: 2022-08-30T11:26:53.942Z
-date_came_in: 2022-08-30T11:26:53.957Z
+dob: 2020-01-01T11:26:53.942Z
+date_came_in: 2021-12-02T11:26:53.957Z
 photos:
   - photo: whatsapp-image-2022-08-29-at-5.44.13-pm-3-.jpeg
   - photo: whatsapp-image-2022-08-29-at-5.44.13-pm-1-.jpeg
@@ -48,7 +48,7 @@ description:
 
     Esperamos que la dulce y leal Tami encuentre finalmente el hogar y la familia que se merece.
 sociability:
-  dogs: Yes
-  cats: Yes
-  children: Yes
+  dogs: TBC
+  cats: TBC
+  children: TBC
 ---

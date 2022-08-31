@@ -1,11 +1,11 @@
 ---
-name: Alessia
+name: Alissia
 breed:
   en: Podenco
   es: Podenco
 sex: f
-dob: 2022-08-30T11:04:25.872Z
-date_came_in: 2022-08-30T11:04:25.883Z
+dob: 2021-01-01T11:04:25.872Z
+date_came_in: 2022-07-17T11:04:25.883Z
 photos:
   - photo: alessia1.jpeg
   - photo: alessia3.jpeg
@@ -39,7 +39,7 @@ description:
 
     propia compañía, simplemente olfateando. Creemos que será una mascota fabulosa.
 sociability:
-  dogs: Yes
-  cats: Yes
-  children: Yes
+  dogs: TBC
+  cats: TBC
+  children: TBC
 ---

@@ -4,8 +4,8 @@ breed:
   en: Bardino
   es: Bardino
 sex: m
-dob: 2022-08-30T11:22:22.467Z
-date_came_in: 2022-08-30T11:22:22.479Z
+dob: 2018-01-01T11:22:22.467Z
+date_came_in: 2022-03-04T11:22:22.479Z
 photos:
   - photo: whatsapp-image-2022-08-29-at-5.40.08-pm.jpeg
   - photo: whatsapp-image-2022-08-29-at-5.40.11-pm-1-.jpeg
@@ -46,7 +46,7 @@ description:
 
     para entrenarlo y controlarlo.
 sociability:
-  dogs: Yes
-  cats: Yes
-  children: Yes
+  dogs: TBC
+  cats: TBC
+  children: TBC
 ---

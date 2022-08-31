@@ -1,11 +1,11 @@
 ---
 name: Tysaon
 breed:
-  en: Bardino
-  es: Bardino
+  en: Mix
+  es: Mestizo
 sex: m
-dob: 2022-08-30T11:30:27.955Z
-date_came_in: 2022-08-30T11:30:27.963Z
+dob: 2012-12-18T11:30:27.955Z
+date_came_in: 2021-06-02T11:30:27.963Z
 photos:
   - photo: img_20210731_095037-01.jpeg
   - photo: img_20210731_093232-01.jpeg
@@ -48,7 +48,7 @@ description:
 
     pet. He doesn’t ask for much – some cuddles, good food and a nice walk are all he needs.
 sociability:
-  dogs: Yes
-  cats: Yes
-  children: Yes
+  dogs: TBC
+  cats: TBC
+  children: TBC
 ---

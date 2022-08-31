@@ -4,8 +4,8 @@ breed:
   en: Podenco
   es: Podenco
 sex: f
-dob: 2022-08-30T11:19:11.329Z
-date_came_in: 2022-08-30T11:19:11.341Z
+dob: 2022-01-01T11:19:11.329Z
+date_came_in: 2022-06-03T11:19:11.341Z
 photos:
   - photo: emm1.jpeg
 ppp: No
@@ -42,7 +42,7 @@ description:
 
     adecuada, los paseos diarios y la satisfacción de sus necesidades, Emm será una mascota maravillosa.
 sociability:
-  dogs: Yes
-  cats: Yes
-  children: Yes
+  dogs: TBC
+  cats: TBC
+  children: TBC
 ---
