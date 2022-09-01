@@ -3,13 +3,14 @@ import { Email, FacebookMessenger } from "mdi-material-ui"
 import React, { useEffect } from "react"
 import { setLanguage, setLocationId } from "../redux/actions"
 
-import CommonQueries from "../components/CommonQueries"
 import ContactForm from "../components/ContactForm"
 import HeadComponent from "../components/Head"
 import PageWrapper from "../components/PageWrapper"
 import { connect } from "react-redux"
 import { graphql } from "gatsby"
 import { nav } from "../siteLinks"
+
+// import CommonQueries from "../components/CommonQueries"
 
 const Contact = ({ data, dispatch, pageContext }) => {
   const { language } = pageContext
@@ -61,7 +62,7 @@ const Contact = ({ data, dispatch, pageContext }) => {
         bgImage={heading_banner.background_image}
         language={language}
       >
-        <CommonQueries language={language} />
+        {/* <CommonQueries language={language} /> */}
         <Typography variant="lead" gutterBottom>
           {contact_button_intro[language]}
         </Typography>

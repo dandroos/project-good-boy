@@ -8,10 +8,10 @@ import { theme } from "../../src/theme"
 const SiteWrapper = ({ children }) => {
   return (
     <>
-      <Loading />
       <NetlifyForm />
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <Loading />
         {children}
       </ThemeProvider>
     </>

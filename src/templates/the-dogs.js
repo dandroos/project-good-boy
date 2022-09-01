@@ -42,13 +42,14 @@ const TheDogs = ({ dispatch, data, pageContext }) => {
           <Grid item xs={12}>
             <ShareBar noDivider />
           </Grid>
-          {data.dogs.edges.map(({ node }) => {
+          {data.dogs.edges.map(({ node }, ind) => {
             if (node.childMarkdownRemark.frontmatter.available === "Yes") {
               const img = convertToBgImage(
                 getImage(node.childMarkdownRemark.frontmatter.photos[0].photo)
               )
               return (
                 <DogCard
+                  key={ind}
                   name={node.childMarkdownRemark.frontmatter.name}
                   breed={node.childMarkdownRemark.frontmatter.breed}
                   age={DDS.getAge({

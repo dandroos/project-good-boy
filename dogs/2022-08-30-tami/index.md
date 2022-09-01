@@ -31,7 +31,7 @@ description:
 
     Tami will finally find the home and family she deserves.
   es: >-
-    Un hermosa cruce de Staffi y Pitbull, la dulce Tami fue abandonada cuando su
+    Una hermosa cruce de Staffi y Pitbull, la dulce Tami fue abandonada cuando su
     familia se fue de la isla.
 
     Creemos que vivía con varios niños pequeños. Una vez en la perrera, aprendió a estar tranquila y a caminar con correa. Se lleva bien con la mayoría de los perros, tanto machos como hembras, cuando se le presenta adecuadamente y el otro perro no es demasiado bullicioso, en cuyo caso puede actuar de forma cohibida, pero sin agresividad. Si le gusta el otro perro, su lado enérgico sale a relucir y lo invita a jugar. Parece estar familiarizada con los gatos y creemos que probablemente haya compartido su hogar con ellos en el pasado. Sólo quiere saludarlos, pero después no muestra ningún interés por ellos.

@@ -15,7 +15,6 @@ import {
   Paw,
 } from "mdi-material-ui"
 import {
-  CardActionArea,
   Divider,
   Grid,
   List,
@@ -189,13 +188,12 @@ const Dog = ({ pageContext, dispatch, data, isMobile }) => {
             stopOnHover
             renderThumbs={() => {
               return data.thumbs.frontmatter.photos.map((i, ind) => (
-                <CardActionArea key={ind}>
-                  <GatsbyImage
-                    alt={dog.frontmatter.breed[language]}
-                    image={getImage(i.photo)}
-                    style={{ cursor: "pointer" }}
-                  />
-                </CardActionArea>
+                <GatsbyImage
+                  key={ind}
+                  alt={dog.frontmatter.breed[language]}
+                  image={getImage(i.photo)}
+                  style={{ cursor: "pointer" }}
+                />
               ))
             }}
           >
@@ -211,15 +209,12 @@ const Dog = ({ pageContext, dispatch, data, isMobile }) => {
                     height: "100%",
                     width: "100%",
                     minHeight: isMobile ? 525 : 425,
+                    cursor: "pointer",
                   }}
-                >
-                  <CardActionArea
-                    sx={{ height: "100%", width: "100%" }}
-                    component="a"
-                    href={i.photo.childImageSharp.resize.src}
-                    target="_blank"
-                  />
-                </Paper>
+                  onClick={() =>
+                    (window.location = i.photo.childImageSharp.resize.src)
+                  }
+                ></Paper>
               )
             })}
           </Carousel>
