@@ -32,13 +32,13 @@ description:
     Chase es un perro muy cariñoso y afectuoso. Camina muy bien con la correa y
     se queda tranquilo
 
-    incluso cuando se le acercan otros perros que no se interesan a el. No hay signos de agresión o
+    incluso cuando se le acercan otros perros que no se interesan a él. No hay signos de agresión o
 
     represalias. Creemos que este magnífico chico se desenvolverá bien como mascota sola, o como
 
     compañero de un otro perro, con una introducción adecuada. Ha tenido una gran experiencia paseando
 
-    junto a una otra podenca, Alessia. Quizás se adaptaría mejor a una compañera canina hembra. Es el tipo
+    junto a una otra podenca, Alissia. Quizás se adaptaría mejor a una compañera canina hembra. Es el tipo
 
     de perro tranquilo que sería fácil de llevar a todas partes debido a su naturaleza relajada y gentil. Le
 

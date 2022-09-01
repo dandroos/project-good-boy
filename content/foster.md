@@ -2,7 +2,7 @@
 heading_banner:
   intro_text:
     en: A loving foster home can help a dog adapt to a better life!
-    es: ¡Un hogar de crianza amoroso ayuda a un perro a adaptarse a una vida mejor!
+    es: ¡Un hogar lleno de cariño, ayuda el perro adaptarse a una vida mejor!
   background_image: site_images/img_20211206_085355-01.jpeg
 content:
   en: >-
@@ -47,31 +47,23 @@ content:
 
     Please don't think of the pain at having to give the dog up when they find their forever home.  Instead, think of the good start you will have given them and the fact that you can help others in a similar situation.
   es: >-
-    Una casa de acogida consiste en tener un perro en tu casa mientras buscamos
-    su hogar definitivo. Nosotros cubrimos los gastos del perro y tú le
-    proporcionas el calor de un hogar para que no tenga que ir a un refugio o
-    seguir en la calle.
+    Una casa de acogida consiste en tener un perro en casa mientras buscamos su hogar definitivo. Nosotros cubrimos los gastos del perro y tú le proporcionas el calor de un hogar para que no tenga que ir a una perrera o seguir en la calle.
 
-
-    Es ideal para aquellos que por su situación personal no pueden adoptar en este momento pero que por su afición a los perros pueden cuidar a uno de nuestros perros por un corto tiempo – o para aquellos que ya tengo perros y no puedo adoptar más pero puedo ayudar a un perro abandonado.
-
+    Es ideal para aquellos que, por su situación personal, no pueden adoptar en este momento, pero, debido a su afición a los perros, pueden cuidar a uno de  nuestros perros por un tiempo – o para aquellos que ya tengan perros y no  pueden adoptar más, pero pueden ayudar a un perro abandonado.
 
     Las casas de acogida son muy importantes para nosotros ya que no tenemos nuestro propio refugio. Cuantas más casas de acogida tengamos, más podremos ayudar.
 
+    # Factores a tener en cuenta a la hora de acoger un perro...
 
-    # Factores a tener en cuenta a la hora de llevar un perro...
+    **Los cachorros que todavía toman leche**
 
-
-    **Los cachorros todavía toman leche**
-
-
-    Estos son cachorros que tienen menos de un mes de edad. Necesitan un biberón cada 2 o 3 horas. Para poder hacerse cargo de un cachorro tan pequeño, necesitará tener mucho tiempo libre o tener horarios flexibles.
+    Estos son cachorros que tienen menos de un mes de edad. Necesitan un biberón cada 2 o 3 horas. Para poder hacerse cargo de un cachorro tan pequeño, necesitarás tener mucho tiempo libre o tener un horario flexible.
 
 
     **Cachorros**
 
 
-    Recuerda que normalmente son muy activos. Están aprendiendo y necesitan que les muestres lo que pueden y no pueden hacer. Si todavía no tiene todas sus vacunas de cachorro, entonces no podrá salir a caminar.
+    Recuerda que normalmente son muy activos. Están aprendiendo y necesitan que les muestres lo que pueden y no pueden hacer. Si todavía no tienen todas sus vacunas de cachorro, entonces no podrán salir a caminar en la calle.
 
 
     **Perros adultos y ancianos**
@@ -83,8 +75,8 @@ content:
     **Perros enfermos y en recuperación**
 
 
-    Pueden ser cachorros, adultos o perros ancianos. Habrá que darle medicación o cambiarle vendajes, etc. y tendrás que tener tiempo disponible para poder llevarlo al veterinario.
+    Pueden ser cachorros, adultos o perros ancianos. Habrá que darles medicación o cambiarle vendajes, etc. y tendrás que tener tiempo disponible para poder llevarlos al veterinario para sus revisiones, etc.
 
 
-    Por favor, no pienses en el dolor de tener que abandonar al perro cuando encuentren su hogar definitivo. En su lugar, piensa en el buen comienzo que les habrás dado y en el hecho de que puedes ayudar a otros en una situación similar.
+    Cuando el perro ya encuentra su familia definitiva, no pienses en el dolor de tener que decir adiós, en su lugar, pienses en el buen comienzo que les habrás dado y en el hecho de que puedes ayudar a otros en una situación similar.
 ---

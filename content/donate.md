@@ -2,7 +2,7 @@
 heading_banner:
   intro_text:
     en: We can't do this without your help.
-    es: No podemos hacer esto sin su ayuda.
+    es: No podemos hacer esto sin tu ayuda.
   background_image: site_images/img_20210808_094105-01.jpeg
 content:
   en: >-
@@ -57,9 +57,7 @@ content:
 
     If you have anything that you would like to donate to us, please contact us and we can arrange a time for you to bring it to the shelter during opening hours.  Thank you.
   es: >-
-    Desafortunadamente, tenemos muchos gastos; la mayoría de las facturas de
-    todos los veterinarios. Como tal, damos la bienvenida a cualquier donación,
-    por pequeña que sea.
+    Desafortunadamente, siempre tenemos muchos gastos, la mayoría son facturas de las clínicas veterinarias. Por tanto, se agradece muchísimo cualquier ingreso, por pequeño que sea.
 
 
     Si quieres ayudar económicamente donando para tratamientos veterinarios, alimentos, medicinas, etc para los más pequeños, puedes hacerlo de las siguientes formas:
@@ -92,13 +90,13 @@ content:
     \[[bank_transfer]]
 
 
-    # Afiliación
+    # Filiación
 
 
-    Buscamos miembros para la Asociación de Rescate Canino de Fuerteventura. Hacerte socio significa que estarás colaborando en el cuidado y atención de los perros de Fuerteventura y en especial del refugio La Oliva.
+    Buscamos socios de la Asociación. Hacerte socio significa que estarás colaborando con el cuidado y atención de los perros en la perrera de La Oliva y a los que estén en casas de acogida.
 
 
-    Con su ayuda, podemos cubrir las facturas de los veterinarios de rutina y de emergencia y comprar el equipo necesario como camas, correas y alimentos especiales, entre otros costos.
+    Con tu ayuda, podemos pagar las facturas de los veterinarios por las cosas diarias y de las emergencias y comprar pienso especiales, medicaciones, etc, entre otras cosas.
 
 
     Desde solo 5€ al mes, puedes ayudar con el cuidado diario de los perros. Contáctenos para más información.
@@ -107,7 +105,7 @@ content:
     # Alimentos, ropa de cama, juguetes y otras donaciones
 
 
-    Si tiene algo que le gustaría donarnos, contáctenos y podemos coordinar un horario para que lo traiga al refugio durante el horario de apertura. Gracias.
+    Si tiene algo que le gustaría donar, contáctenos y podemos concretar un horario para que lo traes cuando estamos en la perrera. ¡¡Muchas gracias!!
 paypal_btn_text:
   en: Donate securely via PayPal
   es: Donar a través de PayPal

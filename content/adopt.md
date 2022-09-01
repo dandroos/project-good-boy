@@ -157,14 +157,16 @@ content:
 
     # Beneficios de adoptar un perro adulto
 
+    * Los voluntarios de la Asociación conocen los perros y pueden asesorarte
 
-    * Los voluntarios de la Asociación conocen los perros y pueden asesorarte sobre cuál se adaptará mejor a tu hogar.
-
+    sobre cuál se adaptará mejor a tu hogar.
     * Los perros adultos aprenden más rápido.
 
     * Su adaptación a su nueva vida suele ser rápida y fácil. El perro se adaptará a las costumbres de su nuevo hogar aprendiendo comandos básicos, dónde tiene que ir para hacer sus necesidades, etc.
 
     * Su tamaño es lo que ves ¡¡no habrá sorpresas!!.
 
-    * Las personas que ya han adoptado un perro adulto está de acuerdo en que el amor y agradecimiento que el perro muestra a su nueva familia es impresionante.
+    * Las personas que ya han adoptado un perro adulto están de acuerdo en
+    que el amor y agradecimiento que el perro muestra a su nueva familia es
+    impresionante.
 ---

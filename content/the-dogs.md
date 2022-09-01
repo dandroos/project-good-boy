@@ -5,8 +5,6 @@ heading_banner:
     es: ¡Ven y conoce a nuestros perros! ¡No pueden esperar para conocerte!
   background_image: site_images/img_20210821_094314-01.jpeg
 ppp_text:
-  en: If a dog is classified as PPP (Perros Potencialmente Peligrosos). Spanish
-    law requires you to hold a licence to own a PPP dog.
-  es: Si un perro está clasificado como PPP (Perros Potencialmente Peligrosos). La
-    ley española requiere que tengas una licencia para tener un PPP perro.
+  en: If a dog is classified as PPP (Perros Potencialmente Peligrosos), Spanish law requires you to hold a licence.
+  es: Si un perro está clasificado como PPP (Perro Potencialmente Peligroso), la Ley española requiere que tengas una licencia.
 ---
